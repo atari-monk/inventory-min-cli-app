@@ -1,0 +1,5 @@
+dotnet new sln
+dotnet new console -n Inventory.Min.Cli.App
+dotnet sln add Inventory.Min.Cli.App
+//copy csproj from Inventory.Min.Cli.App
+//copy files fotm Inventory.Min.Cli.App
