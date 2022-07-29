@@ -9,7 +9,7 @@ public class CommandCli
     : AppProgUnity<CommandCli>
 {
     [Subcommand]
-    public InventoryCommands? InventoryCommands { get; set; }
+    public ItemCommands? InventoryCommands { get; set; }
 
     public CommandCli(
         ILogger log

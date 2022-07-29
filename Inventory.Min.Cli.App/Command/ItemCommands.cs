@@ -6,14 +6,14 @@ using Inventory.Min.Lib;
 namespace Inventory.Min.Cli.App;
 
 [Command(MainCommand)]
-public class InventoryCommands
+public class ItemCommands
     : Commands
 {
-    private const string MainCommand = "Inventory";
+    private const string MainCommand = "item";
 
     private readonly IInsertCommand<ItemInsertArgs> insert;
 
-    public InventoryCommands(
+    public ItemCommands(
         IInsertCommand<ItemInsertArgs> insert
         , IConfigReader config)
             : base(config)

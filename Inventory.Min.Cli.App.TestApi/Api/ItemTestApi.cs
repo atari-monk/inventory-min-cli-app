@@ -29,12 +29,12 @@ public abstract class ItemTestApi
         return data;
     }
 
-    public void AssertInventory(
+    public void AssertItem(
         Item expected
-        , Item acctual)
+        , Item actual)
     {
-        Assert.True(acctual?.Id > 0);
-        Assert.True(acctual?.Name == expected.Name);
-        Assert.True(acctual?.Description == expected.Description);
+        Assert.True(actual?.Id > 0);
+        Assert.Equal(expected.Name, actual?.Name);
+        Assert.Equal(expected.Description, actual?.Description);
     }
 }

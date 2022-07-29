@@ -12,7 +12,7 @@ public class ReplCli
 	private static bool inSession;
 
     [Subcommand]
-    public InventoryCommands? LogCommands { get; set; }
+    public ItemCommands? LogCommands { get; set; }
 
     public ReplCli(
         ILogger log

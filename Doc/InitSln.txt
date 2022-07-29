@@ -1,10 +1,19 @@
 dotnet new sln
+
 dotnet new console -n Inventory.Min.Cli.App
 dotnet sln add Inventory.Min.Cli.App
 //copy csproj from prev proj
 //copy files from prev proj
+
 dotnet new xunit -n Inventory.Min.Cli.App.TestApi
 dotnet sln add Inventory.Min.Cli.App.TestApi
 dotnet add Inventory.Min.Cli.App.TestApi reference Inventory.Min.Cli.App
+//copy csproj from prev proj
+//copy files from prev proj
+
+dotnet new xunit -n Inventory.Min.Cli.App.Tests
+dotnet sln add Inventory.Min.Cli.App.Tests
+dotnet add Inventory.Min.Cli.App.Tests reference Inventory.Min.Cli.App.TestApi
+dotnet add Inventory.Min.Cli.App.Tests reference Inventory.Min.Cli.App
 //copy csproj from prev proj
 //copy files from prev proj
