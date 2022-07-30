@@ -15,22 +15,74 @@ public class ItemData
             new object[] 
             {
                 0
-                , new Item { Name = Name } 
-                , new string[] { MainCmd, Cmd, Name }
+                , GetItem() 
+                , GetCmds()
             }
             ,
             new object[]
             {
                 1
-                , new Item { Name = Name, Description = Description } 
-                , new string[] { MainCmd, Cmd, Name, "-d", Description }
+                , GetItem((item) => item.Description = Description) 
+                , GetCmds("-d", Description)
             }
             ,
             new object[] 
             {
                 2
-                , new Item { Name = Name, CategoryId = 1 } 
-                , new string[] { MainCmd, Cmd, Name, "-c", "1" }
+                , GetItem((item) => item.CategoryId = 1)
+                , GetCmds("-c", "1")
+            }
+            ,
+            new object[] 
+            {
+                3
+                , GetItem((item) => item.PurchaseDate = new DateTime(2022, 7, 30)) 
+                , GetCmds("-p", "30.07.2022")
+            }
+            ,
+            new object[] 
+            {
+                4
+                , GetItem((item) => item.CurrencyId = 1)
+                , GetCmds("--currencyId", "1")
+            }
+            ,
+            new object[] 
+            {
+                5
+                , GetItem((item) => item.PurchasePrice = 10)
+                , GetCmds("-u", "10")
+            }
+            ,
+            new object[] 
+            {
+                6
+                , GetItem((item) => item.SellPrice = 5)
+                , GetCmds("-s", "5")
             }
         };
+
+        private static Item GetItem()
+        {
+            return new Item { Name = Name, CurrencyId = 1 };
+        }
+
+        private static Item GetItem(Action<Item> action)
+        {
+            var item = GetItem();
+            action(item);
+            return item;
+        }
+
+        private static string[] GetCmds()
+        {
+            return new string[] { MainCmd, Cmd, Name };
+        }
+
+        private static string[] GetCmds(params string[] args)
+        {
+            var list = new List<string>(GetCmds());
+            list.AddRange(args);
+            return list.ToArray();
+        }
 }

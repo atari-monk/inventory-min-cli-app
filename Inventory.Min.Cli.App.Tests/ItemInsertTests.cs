@@ -24,13 +24,9 @@ public class ItemInsertTests
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
-
         fixture.RunCmd(fixture.Booter, cmd);
-        
         fixture.AssertItemCount(fixture.Uow, index + 1);
-        
         var actual = fixture.GetItem(fixture.Uow, index);
-        
         fixture.AssertItem(expected, actual);
     }
 }
