@@ -60,11 +60,71 @@ public class ItemData
                 , GetItem((item) => item.SellPrice = 5)
                 , GetCmds("-s", "5")
             }
+            ,
+            new object[] 
+            {
+                7
+                , GetItem((item) => item.ImagePath = 
+                    @"C:\kmazanek.gmail.com\Image\Inventory")
+                , GetCmds("-i", @"C:\kmazanek.gmail.com\Image\Inventory")
+            }
+            ,
+            new object[] 
+            {
+                8
+                , GetItem((item) => item.LengthUnitId = 1)
+                , GetCmds("--lengthUnitId", "1")
+            }
+            ,
+            new object[] 
+            {
+                9
+                , GetItem((item) => item.Length = 99)
+                , GetCmds("-l", "99")
+            }
+            ,
+            new object[] 
+            {
+                10
+                , GetItem((item) => item.Heigth = 56)
+                , GetCmds("-e", "56")
+            }
+            ,
+            new object[] 
+            {
+                11
+                , GetItem((item) => item.Depth = 44)
+                , GetCmds("--depth", "44")
+            }
+            ,
+            new object[] 
+            {
+                12
+                , GetItem((item) => item.Diameter = 66)
+                , GetCmds("--diameter", "66")
+            }
+            ,
+            new object[] 
+            {
+                13
+                , GetItem((item) => item.VolumeUnitId = 1)
+                , GetCmds("--volumeUnitId", "1")
+            }
+            ,
+            new object[] 
+            {
+                14
+                , GetItem((item) => item.Volume = 116)
+                , GetCmds("--volume", "116")
+            }
         };
 
         private static Item GetItem()
         {
-            return new Item { Name = Name, CurrencyId = 1 };
+            return new Item { Name = Name
+                , CurrencyId = 1
+                , LengthUnitId = 1
+                , VolumeUnitId = 1 };
         }
 
         private static Item GetItem(Action<Item> action)

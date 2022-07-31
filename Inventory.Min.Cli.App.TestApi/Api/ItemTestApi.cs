@@ -40,6 +40,15 @@ public abstract class ItemTestApi
         Assert.Equal(expected.CurrencyId, actual?.CurrencyId);
         Assert.Equal(expected.PurchasePrice, actual?.PurchasePrice);
         Assert.Equal(expected.SellPrice, actual?.SellPrice);
-
+        Assert.Equal(expected.ImagePath, actual?.ImagePath);
+        Assert.Equal(expected.LengthUnitId, actual?.LengthUnitId);
+        Assert.Equal(expected.Length, actual?.Length);
+        Assert.Equal(expected.Heigth, actual?.Heigth);
+        Assert.Equal(expected.Depth, actual?.Depth);
+        Assert.Equal(expected.Diameter, actual?.Diameter);
+        Assert.Equal(expected.VolumeUnitId, actual?.VolumeUnitId);
+        Assert.Equal(expected.Volume, actual?.Volume);
+        Assert.Equal(expected.TagId, actual?.TagId);
+        Assert.Equal(expected.StateId, actual?.StateId);
     }
 }
