@@ -117,6 +117,20 @@ public class ItemData
                 , GetItem((item) => item.Volume = 116)
                 , GetCmds("--volume", "116")
             }
+            ,
+            new object[] 
+            {
+                15
+                , GetItem((item) => item.TagId = 2)
+                , GetCmds("-t", "2")
+            }
+            ,
+            new object[] 
+            {
+                16
+                , GetItem((item) => item.StateId = 1)
+                , GetCmds("-a", "1")
+            }
         };
 
         private static Item GetItem()
