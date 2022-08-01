@@ -131,6 +131,13 @@ public class ItemData
                 , GetItem((item) => item.StateId = 1)
                 , GetCmds("-a", "1")
             }
+            ,
+            new object[] 
+            {
+                17
+                , GetItem((item) => item.Quantity = 66)
+                , GetCmds("-q", "66")
+            }
         };
 
         private static Item GetItem()
