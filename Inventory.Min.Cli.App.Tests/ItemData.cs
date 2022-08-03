@@ -2,7 +2,7 @@ using Inventory.Min.Data;
 
 namespace Inventory.Min.Cli.App.Tests;
 
-public class ItemData
+public class ItemInsertData
 {
     private const string MainCmd = "item";
     private const string Cmd = "ins";
@@ -140,30 +140,41 @@ public class ItemData
             }
         };
 
-        private static Item GetItem()
+    public static IEnumerable<object[]> Insert02 =>
+        new List<object[]>
         {
-            return new Item { Name = Name
-                , CurrencyId = 1
-                , LengthUnitId = 1
-                , VolumeUnitId = 1 };
-        }
+            new object[]
+            {
+                0
+                , GetItem((item) => item.Description = "test self ref") 
+                , GetCmds("-d", "test self ref", "-r", "parentId")
+            }
+        };
 
-        private static Item GetItem(Action<Item> action)
-        {
-            var item = GetItem();
-            action(item);
-            return item;
-        }
+    private static Item GetItem()
+    {
+        return new Item { Name = Name
+            , CurrencyId = 1
+            , LengthUnitId = 1
+            , VolumeUnitId = 1 };
+    }
 
-        private static string[] GetCmds()
-        {
-            return new string[] { MainCmd, Cmd, Name };
-        }
+    private static Item GetItem(Action<Item> action)
+    {
+        var item = GetItem();
+        action(item);
+        return item;
+    }
 
-        private static string[] GetCmds(params string[] args)
-        {
-            var list = new List<string>(GetCmds());
-            list.AddRange(args);
-            return list.ToArray();
-        }
+    private static string[] GetCmds()
+    {
+        return new string[] { MainCmd, Cmd, Name };
+    }
+
+    private static string[] GetCmds(params string[] args)
+    {
+        var list = new List<string>(GetCmds());
+        list.AddRange(args);
+        return list.ToArray();
+    }
 }

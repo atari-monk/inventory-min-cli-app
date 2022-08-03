@@ -51,5 +51,6 @@ public abstract class ItemTestApi
         Assert.Equal(expected.Volume, actual?.Volume);
         Assert.Equal(expected.TagId, actual?.TagId);
         Assert.Equal(expected.StateId, actual?.StateId);
+        Assert.Equal(expected.ParentId, actual?.ParentId);
     }
 }
