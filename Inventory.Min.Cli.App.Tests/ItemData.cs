@@ -145,8 +145,7 @@ public class ItemInsertData
         {
             new object[]
             {
-                0
-                , GetItem((item) => item.Description = "test self ref") 
+                GetItem((item) => item.Description = "test self ref") 
                 , GetCmds("-d", "test self ref", "-r", "parentId")
             }
         };

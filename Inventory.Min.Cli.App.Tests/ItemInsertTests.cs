@@ -33,15 +33,16 @@ public class ItemInsertTests
     [Theory]
     [MemberData(nameof(ItemInsertData.Insert02)
         , MemberType= typeof(ItemInsertData))]
-    public void Test02(int index, Item expected, string[] cmd)
+    public void Test02(Item expected, string[] cmd)
     {
-        fixture.AssertItemCount(fixture.Uow, 18);
-        var parent = fixture.GetItem(fixture.Uow, elementIndex: 17);
+        const int PrevTestInsertCount = 18;
+        fixture.AssertItemCount(fixture.Uow, PrevTestInsertCount);
+        var parent = fixture.GetItem(fixture.Uow, elementIndex: PrevTestInsertCount - 1);
         var command = new List<string>(cmd);
         SetValue(command, "parentId", parent.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
-        fixture.AssertItemCount(fixture.Uow, 19);
-        var actual = fixture.GetItem(fixture.Uow, 18);
+        fixture.AssertItemCount(fixture.Uow, PrevTestInsertCount + 1);
+        var actual = fixture.GetItem(fixture.Uow, PrevTestInsertCount);
         expected.ParentId = parent.Id;
         fixture.AssertItem(expected, actual);
     }
