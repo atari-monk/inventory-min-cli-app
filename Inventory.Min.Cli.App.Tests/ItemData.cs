@@ -138,6 +138,20 @@ public class ItemInsertData
                 , GetItem((item) => item.Quantity = 66)
                 , GetCmds("-q", "66")
             }
+            ,
+            new object[] 
+            {
+                18
+                , GetItem((item) => item.Mass = 400)
+                , GetCmds("--mass", "400")
+            }
+            ,
+            new object[] 
+            {
+                19
+                , GetItem((item) => item.MassUnitId = 4)
+                , GetCmds("--massUnitId", "4")
+            }
         };
 
     public static IEnumerable<object[]> Insert02 =>
@@ -155,7 +169,8 @@ public class ItemInsertData
         return new Item { Name = Name
             , CurrencyId = 1
             , LengthUnitId = 1
-            , VolumeUnitId = 1 };
+            , VolumeUnitId = 1
+            , MassUnitId = 3 };
     }
 
     private static Item GetItem(Action<Item> action)

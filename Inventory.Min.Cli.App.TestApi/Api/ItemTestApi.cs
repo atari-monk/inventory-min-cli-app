@@ -52,5 +52,7 @@ public abstract class ItemTestApi
         Assert.Equal(expected.TagId, actual?.TagId);
         Assert.Equal(expected.StateId, actual?.StateId);
         Assert.Equal(expected.ParentId, actual?.ParentId);
+        Assert.Equal(expected.Mass, actual?.Mass);
+        Assert.Equal(expected.MassUnitId, actual?.MassUnitId);
     }
 }
