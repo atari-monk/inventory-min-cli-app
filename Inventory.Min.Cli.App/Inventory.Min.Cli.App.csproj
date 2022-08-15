@@ -27,7 +27,7 @@
 		</None>
 	</ItemGroup>
 	<!-- Debug refs -->
-	<!-- <ItemGroup>
+	<ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>..\..\efcore-helper\EFCore.Helper\bin\Debug\net6.0\EFCore.Helper.dll</HintPath>
 		</Reference>
@@ -70,9 +70,9 @@
 		<Reference Include="Inventory.Min.Lib">
 			<HintPath>..\..\inventory-min-lib\Inventory.Min.Lib\bin\Debug\net6.0\Inventory.Min.Lib.dll</HintPath>
 		</Reference>
-	</ItemGroup> -->
+	</ItemGroup>
 	<!-- Release refs -->
-	<ItemGroup>
+	<!-- <ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>..\..\..\Build\efcore-helper\EFCore.Helper\EFCore.Helper.dll</HintPath>
 		</Reference>
@@ -115,5 +115,5 @@
 		<Reference Include="Inventory.Min.Lib">
 			<HintPath>..\..\..\Build\inventory-min-lib\Inventory.Min.Lib\Inventory.Min.Lib.dll</HintPath>
 		</Reference>
-	</ItemGroup>
+	</ItemGroup> -->
 </Project>
