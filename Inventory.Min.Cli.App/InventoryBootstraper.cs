@@ -1,6 +1,9 @@
+using CLIHelper;
 using CommandDotNet;
 using Config.Wrapper;
 using DIHelper;
+using Microsoft.Extensions.Logging;
+using Serilog.Sinks.InMemory;
 using Unity;
 
 namespace Inventory.Min.Cli.App;
@@ -19,8 +22,8 @@ public class InventoryBootstraper
     {
         container = new UnityContainer()
             .AddExtension(new Diagnostic());
-        var serviceSuite = new ServiceSuite(container);
-        serviceSuite.Register();
+        var configSuite = new ConfigSuite(container);
+        configSuite.Register();
         suite = new SuiteConfig(
             container.Resolve<IConfigReader>())
                 .GetSuite(container);
@@ -34,6 +37,16 @@ public class InventoryBootstraper
         var prog = container.Resolve<IAppProgram>();
         var cmdCli = (CommandCli)prog;
         return cmdCli.AppRunner; 
+    }
+
+    public InMemorySink GetLogger()
+    {
+        return container.Resolve<InMemorySink>("InMemorySink");
+    }
+
+    public IOutput GetOut()
+    {
+        return container.Resolve<IOutput>();
     }
 
     public void RunApp(params string[] args)

@@ -1,6 +1,12 @@
+using CLIHelper;
+using CommandDotNet.TestTools;
 using CommandDotNet.TestTools.Scenarios;
 using Inventory.Min.Cli.App.TestApi;
 using Inventory.Min.Data;
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.InMemory;
+using Serilog.Sinks.InMemory.Assertions;
 using Xunit;
 using XUnit.Helper;
 
@@ -34,9 +40,8 @@ public class ItemReadTests
     [Theory]
     [MemberData(nameof(ItemReadData.Read01)
         , MemberType= typeof(ItemReadData))]
-    public void Test02(int index, Item expected, string[] cmd)
+    public void Test02(int index, string[] cmd, string expected)
     {
-        //fixture.RunCmd(fixture.Booter, cmd);
         // fixture.Booter.GetAppRunner().Verify(new Scenario
         //     {
         //         When = { Args = string.Join(' ', cmd) },
@@ -46,13 +51,21 @@ public class ItemReadTests
         //                 + "10 | Name | Description |          |            |" 
         //         }
         //     });
-        fixture.Booter.GetAppRunner().Verify(new Scenario
-            {
-                When = { Args = string.Join(' ', cmd) },
-                Then = { 
-                    Output = ""
-                }
-            });
+        fixture.RunCmd(fixture.Booter, cmd);
+        var logger = fixture.Booter.GetLogger();
+        logger
+            .Should()
+            .HaveMessage("{0} {1}")
+            .Appearing().Once()
+            .WithProperty("0")
+            .WithValue("Read")
+            .And
+            .WithProperty("1")
+            .WithValue("Item");
+        var output = fixture.Booter.GetOut() as IOutMock;
+        fixture.AssertItemCount(fixture.Uow, index + 1);
+        var item = fixture.GetItem(fixture.Uow, index);
+        Assert.Equal(expected.Replace("{id}", item.Id.ToString()), output?.OutText);
     }
 
     private void SetValue(

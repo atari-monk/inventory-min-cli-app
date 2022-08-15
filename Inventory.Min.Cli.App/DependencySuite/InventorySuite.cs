@@ -19,8 +19,7 @@ public class InventorySuite
 
     protected override void RegisterAppData()
     {
-        RegisterSet<AppLoggerSet>();
-        RegisterSet<AppConfigSet>();
+        RegisterSet<SerilogSet>();
     }
 
     protected override void RegisterDatabase()=> 

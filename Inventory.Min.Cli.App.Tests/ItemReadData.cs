@@ -26,8 +26,8 @@ public class ItemReadData
             new object[] 
             {
                 0
-                , GetItem((item) => item.Description = Description) 
                 , GetReadCmd()
+                , " Id | Name | Description | Category | CategoryId |\r\n {id} | Name | Description |          |            |\r\n"
             }
         };
 

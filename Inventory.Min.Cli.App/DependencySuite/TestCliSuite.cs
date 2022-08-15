@@ -1,4 +1,5 @@
 using CLIHelper.Unity;
+using Serilog.Wrapper.Unity;
 using Unity;
 
 namespace Inventory.Min.Cli.App;
@@ -12,6 +13,11 @@ public class TestCliSuite
     {
     }
 
+    protected override void RegisterAppData()
+    {
+        RegisterSet<TestSerilogSet>();
+    }
+
     protected override void RegisterConsoleInput() => 
-        RegisterSet<CliIODebugSet>();
+        RegisterSet<CliIOInMemSet>();
 }
