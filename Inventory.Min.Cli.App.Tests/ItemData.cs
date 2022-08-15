@@ -2,7 +2,7 @@ using Inventory.Min.Data;
 
 namespace Inventory.Min.Cli.App.Tests;
 
-public class ItemData
+public class ItemInsertData
 {
     private const string MainCmd = "item";
     private const string Cmd = "ins";
@@ -60,29 +60,135 @@ public class ItemData
                 , GetItem((item) => item.SellPrice = 5)
                 , GetCmds("-s", "5")
             }
+            ,
+            new object[] 
+            {
+                7
+                , GetItem((item) => item.ImagePath = 
+                    @"C:\kmazanek.gmail.com\Image\Inventory")
+                , GetCmds("-i", @"C:\kmazanek.gmail.com\Image\Inventory")
+            }
+            ,
+            new object[] 
+            {
+                8
+                , GetItem((item) => item.LengthUnitId = 1)
+                , GetCmds("--lengthUnitId", "1")
+            }
+            ,
+            new object[] 
+            {
+                9
+                , GetItem((item) => item.Length = 99)
+                , GetCmds("-l", "99")
+            }
+            ,
+            new object[] 
+            {
+                10
+                , GetItem((item) => item.Heigth = 56)
+                , GetCmds("-e", "56")
+            }
+            ,
+            new object[] 
+            {
+                11
+                , GetItem((item) => item.Depth = 44)
+                , GetCmds("--depth", "44")
+            }
+            ,
+            new object[] 
+            {
+                12
+                , GetItem((item) => item.Diameter = 66)
+                , GetCmds("--diameter", "66")
+            }
+            ,
+            new object[] 
+            {
+                13
+                , GetItem((item) => item.VolumeUnitId = 1)
+                , GetCmds("--volumeUnitId", "1")
+            }
+            ,
+            new object[] 
+            {
+                14
+                , GetItem((item) => item.Volume = 116)
+                , GetCmds("--volume", "116")
+            }
+            ,
+            new object[] 
+            {
+                15
+                , GetItem((item) => item.TagId = 2)
+                , GetCmds("-t", "2")
+            }
+            ,
+            new object[] 
+            {
+                16
+                , GetItem((item) => item.StateId = 1)
+                , GetCmds("-a", "1")
+            }
+            ,
+            new object[] 
+            {
+                17
+                , GetItem((item) => item.Quantity = 66)
+                , GetCmds("-q", "66")
+            }
+            ,
+            new object[] 
+            {
+                18
+                , GetItem((item) => item.Mass = 400)
+                , GetCmds("--mass", "400")
+            }
+            ,
+            new object[] 
+            {
+                19
+                , GetItem((item) => item.MassUnitId = 4)
+                , GetCmds("--massUnitId", "4")
+            }
         };
 
-        private static Item GetItem()
+    public static IEnumerable<object[]> Insert02 =>
+        new List<object[]>
         {
-            return new Item { Name = Name, CurrencyId = 1 };
-        }
+            new object[]
+            {
+                GetItem((item) => item.Description = "test self ref") 
+                , GetCmds("-d", "test self ref", "-r", "parentId")
+            }
+        };
 
-        private static Item GetItem(Action<Item> action)
-        {
-            var item = GetItem();
-            action(item);
-            return item;
-        }
+    private static Item GetItem()
+    {
+        return new Item { Name = Name
+            , CurrencyId = 1
+            , LengthUnitId = 1
+            , VolumeUnitId = 1
+            , MassUnitId = 3 };
+    }
 
-        private static string[] GetCmds()
-        {
-            return new string[] { MainCmd, Cmd, Name };
-        }
+    private static Item GetItem(Action<Item> action)
+    {
+        var item = GetItem();
+        action(item);
+        return item;
+    }
 
-        private static string[] GetCmds(params string[] args)
-        {
-            var list = new List<string>(GetCmds());
-            list.AddRange(args);
-            return list.ToArray();
-        }
+    private static string[] GetCmds()
+    {
+        return new string[] { MainCmd, Cmd, Name };
+    }
+
+    private static string[] GetCmds(params string[] args)
+    {
+        var list = new List<string>(GetCmds());
+        list.AddRange(args);
+        return list.ToArray();
+    }
 }
