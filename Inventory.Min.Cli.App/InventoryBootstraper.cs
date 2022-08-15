@@ -1,3 +1,4 @@
+using CommandDotNet;
 using Config.Wrapper;
 using DIHelper;
 using Unity;
@@ -9,22 +10,30 @@ public class InventoryBootstraper
 {
     private IDependencySuite? suite;
     private IBootstraper? booter;
+    private IUnityContainer? container;
 
     public IDependencySuite? Suite => suite;
     public Guid AppId { get; private set; }
 
     public void CreateApp()
     {
-        var unity = new UnityContainer()
+        container = new UnityContainer()
             .AddExtension(new Diagnostic());
-        var serviceSuite = new ServiceSuite(unity);
+        var serviceSuite = new ServiceSuite(container);
         serviceSuite.Register();
         suite = new SuiteConfig(
-            unity.Resolve<IConfigReader>())
-                .GetSuite(unity);
+            container.Resolve<IConfigReader>())
+                .GetSuite(container);
         booter = new Bootstraper(suite);
         booter.CreateApp();
         AppId = Guid.NewGuid();
+    }
+
+    public AppRunner GetAppRunner()
+    {
+        var prog = container.Resolve<IAppProgram>();
+        var cmdCli = (CommandCli)prog;
+        return cmdCli.AppRunner; 
     }
 
     public void RunApp(params string[] args)

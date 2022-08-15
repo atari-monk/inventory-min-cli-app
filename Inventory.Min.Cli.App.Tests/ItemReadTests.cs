@@ -1,3 +1,4 @@
+using CommandDotNet.TestTools.Scenarios;
 using Inventory.Min.Cli.App.TestApi;
 using Inventory.Min.Data;
 using Xunit;
@@ -35,11 +36,23 @@ public class ItemReadTests
         , MemberType= typeof(ItemReadData))]
     public void Test02(int index, Item expected, string[] cmd)
     {
-        fixture.AssertItemCount(fixture.Uow, index + 1);
-        fixture.RunCmd(fixture.Booter, cmd);
-        fixture.AssertItemCount(fixture.Uow, index + 1);
-        var actual = fixture.GetItem(fixture.Uow, index);
-        fixture.AssertItem(expected, actual);
+        //fixture.RunCmd(fixture.Booter, cmd);
+        // fixture.Booter.GetAppRunner().Verify(new Scenario
+        //     {
+        //         When = { Args = string.Join(' ', cmd) },
+        //         Then = { 
+        //             Output = "[18:36:18 INF] Read Item"
+        //                 + "Id | Name | Description | Category | CategoryId |"
+        //                 + "10 | Name | Description |          |            |" 
+        //         }
+        //     });
+        fixture.Booter.GetAppRunner().Verify(new Scenario
+            {
+                When = { Args = string.Join(' ', cmd) },
+                Then = { 
+                    Output = ""
+                }
+            });
     }
 
     private void SetValue(
