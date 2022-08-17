@@ -19,6 +19,10 @@ dotnet add Inventory.Min.Cli.App.Tests reference Inventory.Min.Cli.App
 //copy files from prev proj
 //
 //build doker image of api:
+//lib dlls must be in same folder as csproj file
+//run command
+dotnet publish -c Release -o out
+//copy out content to dlls folder and point refs at it
 //
 docker build -t kmazanek/inventory.min.api .
 docker run -p 8080:80 kmazanek/inventory.min.api

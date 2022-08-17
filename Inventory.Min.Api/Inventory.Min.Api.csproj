@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <!-- Debug refs -->
-	<ItemGroup>
+	<!-- <ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>..\..\efcore-helper\EFCore.Helper\bin\Debug\net6.0\EFCore.Helper.dll</HintPath>
 		</Reference>
@@ -25,7 +25,7 @@
 		<Reference Include="Inventory.Min.Lib">
 			<HintPath>..\..\inventory-min-lib\Inventory.Min.Lib\bin\Debug\net6.0\Inventory.Min.Lib.dll</HintPath>
 		</Reference>
-	</ItemGroup>
+	</ItemGroup> -->
     <!-- Release refs -->
 	<!-- <ItemGroup>
 		<Reference Include="EFCore.Helper">
@@ -38,4 +38,15 @@
 			<HintPath>..\..\..\Build\inventory-min-lib\Inventory.Min.Lib\Inventory.Min.Lib.dll</HintPath>
 		</Reference>
 	</ItemGroup> -->
+    <ItemGroup>
+		<Reference Include="EFCore.Helper">
+			<HintPath>dlls\EFCore.Helper.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Data">
+			<HintPath>dlls\Inventory.Min.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Lib">
+			<HintPath>dlls\Inventory.Min.Lib.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 </Project>
