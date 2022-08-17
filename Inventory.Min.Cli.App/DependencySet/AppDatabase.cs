@@ -17,7 +17,7 @@ public class AppDatabase
     {
         Container
             .RegisterSingleton<InventoryDbContext>()
-            .RegisterSingleton<IItemRepo, ItemRepo>()
-            .RegisterSingleton<IInventoryUnitOfWork, InventoryUnitOfWork>();
+            .RegisterSingleton<IItemRepo, ItemRepo<InventoryDbContext>>()
+            .RegisterSingleton<IInventoryUnitOfWork, InventoryUnitOfWork<InventoryDbContext>>();
     }
 }
