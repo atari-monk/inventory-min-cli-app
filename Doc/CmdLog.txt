@@ -33,3 +33,9 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd2019' -e 'MSSQL_PID=Expres
 //
 //test connection with managment studio
 localhost,1433
+//
+//run docker compose file
+docker-compose up
+//test with browser
+http://localhost:8080/api/items
+https://localhost:8080/api/items
