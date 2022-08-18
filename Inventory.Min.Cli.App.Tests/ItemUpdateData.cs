@@ -76,6 +76,26 @@ public class ItemUpdateData
                     , (item) => item.CategoryId = 2)
                 , new string[] {"item", "upd", "itemid", "--categoryId", "2"} 
             }
+            , new object[] 
+            {
+                8
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 17, 16, 0))
+                , new string[] {"item", "upd", "itemid", "-p", "18.08.2022 17:16"} 
+            }
+            , new object[] 
+            {
+                9
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0))
+                , new string[] {"item", "upd", "itemid", "--purchaseDate", "18.08.2022 18:00"} 
+            }
         };
     
     private static Item GetItem()
