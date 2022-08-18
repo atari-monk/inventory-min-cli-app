@@ -96,6 +96,28 @@ public class ItemUpdateData
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0))
                 , new string[] {"item", "upd", "itemid", "--purchaseDate", "18.08.2022 18:00"} 
             }
+            , new object[] 
+            {
+                10
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 2)
+                , new string[] {"item", "upd", "itemid", "-u", "2"} 
+            }
+            , new object[] 
+            {
+                10
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3)
+                , new string[] {"item", "upd", "itemid", "--currencyId", "3"} 
+            }
         };
     
     private static Item GetItem()
