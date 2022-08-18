@@ -18,14 +18,45 @@ public class ItemUpdateData
         {
             new object[] 
             {
-                GetItem((item) => item.Name = "update") 
+                0
+                , GetItem((item) => item.Name = "update") 
                 , new string[] {"item", "upd", "itemid", "-n", "update"} 
             }
             , new object[] 
             {
-                GetItem((item) => item.Name = "update"
+                1
+                , GetItem((item) => item.Name = "--update") 
+                , new string[] {"item", "upd", "itemid", "--name", "--update"} 
+            }
+            , new object[] 
+            {
+                2
+                , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "descUpd") 
                 , new string[] {"item", "upd", "itemid", "-d", "descUpd"} 
+            }
+            , new object[] 
+            {
+                3
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd") 
+                , new string[] {"item", "upd", "itemid", "--desc", "--descUpd"} 
+            }
+            , new object[] 
+            {
+                4
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 10)
+                , new string[] {"item", "upd", "itemid", "-q", "10"} 
+            }
+            , new object[] 
+            {
+                5
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20)
+                , new string[] {"item", "upd", "itemid", "--quantity", "20"} 
             }
         };
     

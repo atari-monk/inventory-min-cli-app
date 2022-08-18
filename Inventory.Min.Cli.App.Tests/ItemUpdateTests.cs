@@ -27,7 +27,7 @@ public class ItemUpdateTests
 
     [Theory]
     [MemberData(nameof(ItemUpdateData.Update01), MemberType= typeof(ItemUpdateData))]
-    public void Test04(Item expected, string[] cmd)
+    public void Test04(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, 1);
         var itemDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
