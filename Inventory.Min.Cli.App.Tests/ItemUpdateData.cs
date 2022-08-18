@@ -58,6 +58,24 @@ public class ItemUpdateData
                     , (item) => item.Quantity = 20)
                 , new string[] {"item", "upd", "itemid", "--quantity", "20"} 
             }
+            , new object[] 
+            {
+                6
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 1)
+                , new string[] {"item", "upd", "itemid", "-c", "1"} 
+            }
+            , new object[] 
+            {
+                7
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2)
+                , new string[] {"item", "upd", "itemid", "--categoryId", "2"} 
+            }
         };
     
     private static Item GetItem()
