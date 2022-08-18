@@ -18,16 +18,22 @@ public class ItemUpdateData
         {
             new object[] 
             {
-                GetItem((item) => item.Name = "insert") 
-                , GetItem((item) => item.Name = "update") 
+                GetItem((item) => item.Name = "update") 
                 , new string[] {"item", "upd", "itemid", "-n", "update"} 
+            }
+            , new object[] 
+            {
+                GetItem((item) => item.Name = "update"
+                    , (item) => item.Description = "descUpd") 
+                , new string[] {"item", "upd", "itemid", "-d", "descUpd"} 
             }
         };
     
     private static Item GetItem()
     {
-        return new Item { 
-            CurrencyId = 1
+        return new Item {
+            Name = "insert"
+            , CurrencyId = 1
             , LengthUnitId = 1
             , VolumeUnitId = 1
             , MassUnitId = 3 };
@@ -37,6 +43,16 @@ public class ItemUpdateData
     {
         var item = GetItem();
         action(item);
+        return item;
+    }
+
+    private static Item GetItem(params Action<Item>[] actions)
+    {
+        var item = GetItem();
+        foreach (var action in actions)
+        {
+            action(item);
+        }
         return item;
     }
 }

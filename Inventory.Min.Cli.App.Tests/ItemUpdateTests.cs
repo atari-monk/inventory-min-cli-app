@@ -27,20 +27,17 @@ public class ItemUpdateTests
 
     [Theory]
     [MemberData(nameof(ItemUpdateData.Update01), MemberType= typeof(ItemUpdateData))]
-    public void Test04(Item insExpected, Item updExpected, string[] cmd)
+    public void Test04(Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, 1);
         var itemDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
-        fixture.AssertItem(
-            insExpected
-            , itemDb);
         var command = new List<string>(cmd);
         SetValue(command, "itemid", itemDb.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
         fixture.AssertItemCount(fixture.Uow, 1);
         var itemUpdDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
         fixture.AssertItem(
-            updExpected
+            expected
             , itemUpdDb);
     }
 
