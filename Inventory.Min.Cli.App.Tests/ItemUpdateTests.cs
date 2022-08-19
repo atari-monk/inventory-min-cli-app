@@ -29,6 +29,7 @@ public class ItemUpdateTests
     [MemberData(nameof(ItemUpdateData.Update01), MemberType= typeof(ItemUpdateData))]
     public void Test04(int index, Item expected, string[] cmd)
     {
+        Assert.True(index >= 0 && index < 100);
         fixture.AssertItemCount(fixture.Uow, 1);
         var itemDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
         var command = new List<string>(cmd);

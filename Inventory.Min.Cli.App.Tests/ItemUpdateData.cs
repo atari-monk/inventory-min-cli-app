@@ -292,6 +292,42 @@ public class ItemUpdateData
                     , (item) => item.Heigth = 45.2)
                 , new string[] {"item", "upd", "itemid", "--heigth", "45.2"} 
             }
+            , new object[] 
+            {
+                23
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 13.6)
+                , new string[] {"item", "upd", "itemid", "-t", "13.6"} 
+            }
+            , new object[] 
+            {
+                24
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3)
+                , new string[] {"item", "upd", "itemid", "--depth", "17.3"} 
+            }
         };
     
     private static Item GetItem()
