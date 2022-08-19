@@ -27,7 +27,7 @@ public class ItemReadData
             {
                 0
                 , GetReadCmd()
-                , " Id | Name | Description | Category | CategoryId |\r\n {id} | Name | Description |          |            |\r\n"
+                , " Id{white} | Name | Description | Category | CategoryId |\r\n {id} | Name | Description |          |            |\r\n"
             }
         };
 

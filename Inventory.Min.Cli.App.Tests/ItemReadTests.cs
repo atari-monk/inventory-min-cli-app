@@ -1,11 +1,6 @@
 using CLIHelper;
-using CommandDotNet.TestTools;
-using CommandDotNet.TestTools.Scenarios;
 using Inventory.Min.Cli.App.TestApi;
 using Inventory.Min.Data;
-using Serilog;
-using Serilog.Events;
-using Serilog.Sinks.InMemory;
 using Serilog.Sinks.InMemory.Assertions;
 using Xunit;
 using XUnit.Helper;
@@ -65,7 +60,23 @@ public class ItemReadTests
         var output = fixture.Booter.GetOut() as IOutMock;
         fixture.AssertItemCount(fixture.Uow, index + 1);
         var item = fixture.GetItem(fixture.Uow, index);
-        Assert.Equal(expected.Replace("{id}", item.Id.ToString()), output?.OutText);
+        var idStr = item.Id.ToString();
+        expected = expected.Replace("{id}", idStr);
+        expected = expected.Replace("{white}", GetWhites(item));
+        Assert.Equal(expected, output?.OutText);
+    }
+
+    private static string GetWhites(Item item)
+    {
+        return new string(' ', GetWhitesCount(item));
+    }
+
+    private static int GetWhitesCount(Item item)
+    {
+        var idLength = item.Id.ToString().Length;
+        if (idLength <= 2)
+            return 0;
+        return idLength - 2;
     }
 
     private void SetValue(
