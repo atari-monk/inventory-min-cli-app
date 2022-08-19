@@ -118,6 +118,30 @@ public class ItemUpdateData
                     , (item) => item.CurrencyId = 3)
                 , new string[] {"item", "upd", "itemid", "--currencyId", "3"} 
             }
+            , new object[] 
+            {
+                11
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 33.3m)
+                , new string[] {"item", "upd", "itemid", "-r", "33.3"} 
+            }
+            , new object[] 
+            {
+                12
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m)
+                , new string[] {"item", "upd", "itemid", "--purchasePrice", "99.6"} 
+            }
         };
     
     private static Item GetItem()
