@@ -49,10 +49,10 @@ public abstract class ItemTestApi
         Assert.Equal(expected.Diameter, actual?.Diameter);
         Assert.Equal(expected.VolumeUnitId, actual?.VolumeUnitId);
         Assert.Equal(expected.Volume, actual?.Volume);
+        Assert.Equal(expected.Mass, actual?.Mass);
+        Assert.Equal(expected.MassUnitId, actual?.MassUnitId);
         Assert.Equal(expected.TagId, actual?.TagId);
         Assert.Equal(expected.StateId, actual?.StateId);
         Assert.Equal(expected.ParentId, actual?.ParentId);
-        Assert.Equal(expected.Mass, actual?.Mass);
-        Assert.Equal(expected.MassUnitId, actual?.MassUnitId);
     }
 }

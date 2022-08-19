@@ -27,7 +27,7 @@ public class ItemUpdateTests
 
     [Theory]
     [MemberData(nameof(ItemUpdateData.Update01), MemberType= typeof(ItemUpdateData))]
-    public void Test04(int index, Item expected, string[] cmd)
+    public void Test02(int index, Item expected, string[] cmd)
     {
         Assert.True(index >= 0 && index < 100);
         fixture.AssertItemCount(fixture.Uow, 1);
@@ -42,13 +42,31 @@ public class ItemUpdateTests
             , itemUpdDb);
     }
 
-    private Item GetItem()
+    [Theory]
+    [MemberData(nameof(ItemUpdateData.Insert02), MemberType= typeof(ItemUpdateData))]
+    public void Test03(string[] cmd)
     {
-        return new Item()
-        {
-            CurrencyId = 1
-            , 
-        };
+        fixture.RunCmd(fixture.Booter, cmd);
+    }
+
+    [Theory]
+    [MemberData(nameof(ItemUpdateData.Update02), MemberType= typeof(ItemUpdateData))]
+    public void Test04(int index, Item expected, string[] cmd)
+    {
+        Assert.True(index >= 0 && index < 2);
+        fixture.AssertItemCount(fixture.Uow, 2);
+        var itemDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
+        var itemDb2 = fixture.GetItem(fixture.Uow, elementIndex: 1);
+        var command = new List<string>(cmd);
+        SetValue(command, "itemid", itemDb.Id.ToString());
+        SetValue(command, "parentid", itemDb2.Id.ToString());
+        fixture.RunCmd(fixture.Booter, command.ToArray());
+        fixture.AssertItemCount(fixture.Uow, 2);
+        var itemUpdDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
+        expected.ParentId = itemDb2.Id;
+        fixture.AssertItem(
+            expected
+            , itemUpdDb);
     }
 
     private void SetValue(

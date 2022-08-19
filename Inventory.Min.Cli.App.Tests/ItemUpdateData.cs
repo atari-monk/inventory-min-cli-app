@@ -366,8 +366,342 @@ public class ItemUpdateData
                     , (item) => item.Diameter = 222.2)
                 , new string[] {"item", "upd", "itemid", "--diameter", "222.2"} 
             }
+            , new object[] 
+            {
+                28
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 2)
+                , new string[] {"item", "upd", "itemid", "-v", "2"} 
+            }
+            , new object[] 
+            {
+                29
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3)
+                , new string[] {"item", "upd", "itemid", "--volumeUnitId", "3"} 
+            }
+            , new object[] 
+            {
+                30
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 31.7)
+                , new string[] {"item", "upd", "itemid", "-o", "31.7"} 
+            }
+            , new object[] 
+            {
+                31
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3)
+                , new string[] {"item", "upd", "itemid", "--volume", "41.3"} 
+            }
+            , new object[] 
+            {
+                32
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 222.9)
+                , new string[] {"item", "upd", "itemid", "-m", "222.9"} 
+            }
+            , new object[] 
+            {
+                33
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2)
+                , new string[] {"item", "upd", "itemid", "--mass", "453.2"} 
+            }
+            , new object[] 
+            {
+                34
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 4)
+                , new string[] {"item", "upd", "itemid", "-x", "4"} 
+            }
+            , new object[] 
+            {
+                35
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3)
+                , new string[] {"item", "upd", "itemid", "--massUnitId", "3"} 
+            }
+            , new object[] 
+            {
+                36
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3
+                    , (item) => item.TagId = 2)
+                , new string[] {"item", "upd", "itemid", "-z", "2"} 
+            }
+            , new object[] 
+            {
+                37
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3
+                    , (item) => item.TagId = 1)
+                , new string[] {"item", "upd", "itemid", "--tagId", "1"} 
+            }
+            , new object[] 
+            {
+                38
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3
+                    , (item) => item.TagId = 1
+                    , (item) => item.StateId = 2)
+                , new string[] {"item", "upd", "itemid", "-b", "2"} 
+            }
+            , new object[] 
+            {
+                39
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3
+                    , (item) => item.TagId = 1
+                    , (item) => item.StateId = 3)
+                , new string[] {"item", "upd", "itemid", "--stateId", "3"} 
+            }
         };
     
+    public static IEnumerable<object[]> Insert02 =>
+        new List<object[]>
+        {
+            new object[] 
+            {
+                new string[] {"item", "ins", "insert2"} 
+            }
+        };
+
+    public static IEnumerable<object[]> Update02 =>
+        new List<object[]>
+        {
+            new object[]
+            {
+                0
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3
+                    , (item) => item.TagId = 1
+                    , (item) => item.StateId = 3)
+                , new string[] {"item", "upd", "itemid", "-f", "parentid"} 
+            }
+            , new object[]
+            {
+                1
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2
+                    , (item) => item.VolumeUnitId = 3
+                    , (item) => item.Volume = 41.3
+                    , (item) => item.Mass = 453.2
+                    , (item) => item.MassUnitId = 3
+                    , (item) => item.TagId = 1
+                    , (item) => item.StateId = 3)
+                , new string[] {"item", "upd", "itemid", "--parentId", "parentid"} 
+            }
+        };
+
     private static Item GetItem()
     {
         return new Item {
