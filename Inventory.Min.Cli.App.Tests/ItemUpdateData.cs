@@ -109,7 +109,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                10
+                11
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -120,7 +120,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                11
+                12
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -132,7 +132,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                12
+                13
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -144,7 +144,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                13
+                14
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -157,7 +157,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                14
+                15
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -167,20 +167,6 @@ public class ItemUpdateData
                     , (item) => item.PurchasePrice = 99.6m
                     , (item) => item.SellPrice = 78.1m)
                 , new string[] {"item", "upd", "itemid", "--sellPrice", "78.1"} 
-            }
-            , new object[] 
-            {
-                15
-                , GetItem((item) => item.Name = "--update"
-                    , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
-                    , (item) => item.CategoryId = 2
-                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
-                    , (item) => item.CurrencyId = 3
-                    , (item) => item.PurchasePrice = 99.6m
-                    , (item) => item.SellPrice = 78.1m
-                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png")
-                , new string[] {"item", "upd", "itemid", "-i", @"C:\kmazanek.gmail.com\Image\Inventory\test.png"} 
             }
             , new object[] 
             {
@@ -194,11 +180,25 @@ public class ItemUpdateData
                     , (item) => item.PurchasePrice = 99.6m
                     , (item) => item.SellPrice = 78.1m
                     , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png")
-                , new string[] {"item", "upd", "itemid", "--imagePath", @"C:\kmazanek.gmail.com\Image\Inventory\test.png"} 
+                , new string[] {"item", "upd", "itemid", "-i", @"C:\kmazanek.gmail.com\Image\Inventory\test.png"} 
             }
             , new object[] 
             {
                 17
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png")
+                , new string[] {"item", "upd", "itemid", "--imagePath", @"C:\kmazanek.gmail.com\Image\Inventory\test.png"} 
+            }
+            , new object[] 
+            {
+                18
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -213,7 +213,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                18
+                19
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -228,7 +228,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                19
+                20
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -244,7 +244,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                20
+                21
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -260,7 +260,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                21
+                22
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -277,7 +277,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                22
+                23
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -294,7 +294,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                23
+                24
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -312,7 +312,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                24
+                25
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -330,7 +330,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                25
+                26
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
@@ -349,7 +349,7 @@ public class ItemUpdateData
             }
             , new object[] 
             {
-                26
+                27
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
                     , (item) => item.Quantity = 20
