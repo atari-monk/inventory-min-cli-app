@@ -168,6 +168,34 @@ public class ItemUpdateData
                     , (item) => item.SellPrice = 78.1m)
                 , new string[] {"item", "upd", "itemid", "--sellPrice", "78.1"} 
             }
+            , new object[] 
+            {
+                15
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png")
+                , new string[] {"item", "upd", "itemid", "-i", @"C:\kmazanek.gmail.com\Image\Inventory\test.png"} 
+            }
+            , new object[] 
+            {
+                16
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png")
+                , new string[] {"item", "upd", "itemid", "--imagePath", @"C:\kmazanek.gmail.com\Image\Inventory\test.png"} 
+            }
         };
     
     private static Item GetItem()
