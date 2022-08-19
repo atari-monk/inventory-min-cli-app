@@ -328,6 +328,44 @@ public class ItemUpdateData
                     , (item) => item.Depth = 17.3)
                 , new string[] {"item", "upd", "itemid", "--depth", "17.3"} 
             }
+            , new object[] 
+            {
+                25
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 167.3)
+                , new string[] {"item", "upd", "itemid", "-a", "167.3"} 
+            }
+            , new object[] 
+            {
+                26
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.Quantity = 20
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
+                    , (item) => item.CurrencyId = 3
+                    , (item) => item.PurchasePrice = 99.6m
+                    , (item) => item.SellPrice = 78.1m
+                    , (item) => item.ImagePath = @"C:\kmazanek.gmail.com\Image\Inventory\test.png"
+                    , (item) => item.LengthUnitId = 1
+                    , (item) => item.Length = 23.4
+                    , (item) => item.Heigth = 45.2
+                    , (item) => item.Depth = 17.3
+                    , (item) => item.Diameter = 222.2)
+                , new string[] {"item", "upd", "itemid", "--diameter", "222.2"} 
+            }
         };
     
     private static Item GetItem()
