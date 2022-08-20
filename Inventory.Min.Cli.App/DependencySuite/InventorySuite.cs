@@ -1,6 +1,6 @@
 using CLIHelper.Unity;
-using Config.Wrapper.Unity;
 using DIHelper.Unity;
+using Inventory.Min.BetterTable;
 using Inventory.Min.Lib;
 using Inventory.Min.Table;
 using Serilog.Wrapper.Unity;
@@ -28,8 +28,12 @@ public class InventorySuite
     protected override void RegisterConsoleInput() => 
         RegisterSet<CliIOSet>();
 
-    protected override void RegisterConsoleOutput() => 
-        RegisterSet<InventoryTableSet>();
+    protected override void RegisterConsoleOutput()
+    {
+        //RegisterSet<MyTableLibSet>();
+        RegisterSet<BetterTableSet>();
+        RegisterSet<BetterTableDictionarySet>();
+    }
 
     protected override void RegisterDataMappings()
     {
