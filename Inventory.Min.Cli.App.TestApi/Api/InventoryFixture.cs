@@ -7,7 +7,7 @@ public class InventoryFixture
     : ItemTestApi
         , IDisposable
 {
-    public InventoryBootstraper Booter { get; private set; }
+    public Bootstraper Booter { get; private set; }
 
     public IInventoryUnitOfWork Uow { get; private set; }
 

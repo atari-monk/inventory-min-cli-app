@@ -4,10 +4,10 @@ using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class AppDatabase 
+public class DatabaseSet 
     : UnityDependencySet
 {
-    public AppDatabase(
+    public DatabaseSet(
         IUnityContainer container) 
             : base(container)
     {

@@ -6,11 +6,11 @@ using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class SuiteConfig
+public class SettingSuite
 {
     private readonly IConfigReader configReader;
 
-    public SuiteConfig(
+    public SettingSuite(
         IConfigReader configReader)
     {
         this.configReader = configReader;
@@ -24,10 +24,10 @@ public class SuiteConfig
         var runMode = configReader.GetConfigSection<RunMode>(nameof(RunMode));
         ArgumentNullException.ThrowIfNull(runMode);
         if(runMode.Test)
-            return new TestCliSuite(unity);
+            return new TestSuite(unity);
         if(settings.UseRepl)
-            return new ReplCliSuite(unity);
+            return new ReplSuite(unity);
         else
-            return new CommandCliSuite(unity);
+            return new CmdSuite(unity);
     }
 }

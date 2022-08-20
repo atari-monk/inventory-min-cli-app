@@ -8,10 +8,10 @@ using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class InventorySuite 
+public class AppSuite 
     : UnityDependencySuite
 {
-    public InventorySuite(
+    public AppSuite(
         IUnityContainer container) 
         : base(container) 
     {
@@ -23,16 +23,14 @@ public class InventorySuite
     }
 
     protected override void RegisterDatabase()=> 
-        RegisterSet<AppDatabase>();
+        RegisterSet<DatabaseSet>();
 
     protected override void RegisterConsoleInput() => 
         RegisterSet<CliIOSet>();
 
     protected override void RegisterConsoleOutput()
     {
-        //RegisterSet<MyTableLibSet>();
-        RegisterSet<BetterTableSet>();
-        RegisterSet<BetterTableDictionarySet>();
+        RegisterSet<MyTableLibSet>();
     }
 
     protected override void RegisterDataMappings()

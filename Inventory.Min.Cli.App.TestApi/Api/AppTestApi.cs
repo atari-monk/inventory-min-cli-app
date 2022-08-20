@@ -5,16 +5,16 @@ namespace Inventory.Min.Cli.App.TestApi;
 
 public abstract class AppTestApi
 {
-    protected InventoryBootstraper GetBooter()
+    protected Bootstraper GetBooter()
     {
-        var booter = new InventoryBootstraper();
+        var booter = new Bootstraper();
         booter.CreateApp();
         return booter;
         throw new NotImplementedException();
     }
 
     protected IInventoryUnitOfWork GetUnitOfWork(
-        InventoryBootstraper booter)
+        Bootstraper booter)
     {
         var unitOfWork = booter.Suite?.Resolve<IInventoryUnitOfWork>();
         ArgumentNullException.ThrowIfNull(unitOfWork);

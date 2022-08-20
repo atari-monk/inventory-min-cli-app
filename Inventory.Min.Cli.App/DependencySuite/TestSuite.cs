@@ -4,10 +4,10 @@ using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class TestCliSuite 
-    : CommandCliSuite
+public class TestSuite 
+    : CmdSuite
 {
-    public TestCliSuite(
+    public TestSuite(
         IUnityContainer container)
         : base(container)
     {

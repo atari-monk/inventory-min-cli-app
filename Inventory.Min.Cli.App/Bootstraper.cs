@@ -2,13 +2,12 @@ using CLIHelper;
 using CommandDotNet;
 using Config.Wrapper;
 using DIHelper;
-using Microsoft.Extensions.Logging;
 using Serilog.Sinks.InMemory;
 using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class InventoryBootstraper
+public class Bootstraper
     : IBootstraper
 {
     private IDependencySuite? suite;
@@ -22,12 +21,12 @@ public class InventoryBootstraper
     {
         container = new UnityContainer()
             .AddExtension(new Diagnostic());
-        var configSuite = new ConfigSuite(container);
+        var configSuite = new Config.Wrapper.ConfigSuite(container);
         configSuite.Register();
-        suite = new SuiteConfig(
+        suite = new SettingSuite(
             container.Resolve<IConfigReader>())
                 .GetSuite(container);
-        booter = new Bootstraper(suite);
+        booter = new DIHelper.Bootstraper(suite);
         booter.CreateApp();
         AppId = Guid.NewGuid();
     }
@@ -35,7 +34,7 @@ public class InventoryBootstraper
     public AppRunner GetAppRunner()
     {
         var prog = container.Resolve<IAppProgram>();
-        var cmdCli = (CommandCli)prog;
+        var cmdCli = (CmdProgram)prog;
         return cmdCli.AppRunner; 
     }
 

@@ -5,13 +5,13 @@ using Serilog;
 
 namespace Inventory.Min.Cli.App;
 
-public class CommandCli 
-    : AppProgUnity<CommandCli>
+public class CmdProgram 
+    : AppProgUnity<CmdProgram>
 {
     [Subcommand]
     public ItemCommands? InventoryCommands { get; set; }
 
-    public CommandCli(
+    public CmdProgram(
         ILogger log
         , IConfigReader config) 
             : base(log, config)

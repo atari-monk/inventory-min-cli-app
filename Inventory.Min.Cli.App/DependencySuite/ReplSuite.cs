@@ -3,15 +3,15 @@ using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class CommandCliSuite 
-    : InventorySuite
+public class ReplSuite 
+    : AppSuite
 {
-    public CommandCliSuite(
+    public ReplSuite(
         IUnityContainer container)
         : base(container)
     {
     }
 
     protected override void RegisterProgram() =>
-        RegisterSet<AppProgSet<CommandCli>>();
+        RegisterSet<AppProgSet<ReplProgram>>();
 }

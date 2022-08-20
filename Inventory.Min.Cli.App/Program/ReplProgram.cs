@@ -6,15 +6,15 @@ using Serilog;
 
 namespace Inventory.Min.Cli.App;
 
-public class ReplCli 
-    : AppProgUnity<ReplCli>
+public class ReplProgram 
+    : AppProgUnity<ReplProgram>
 {
 	private static bool inSession;
 
     [Subcommand]
     public ItemCommands? LogCommands { get; set; }
 
-    public ReplCli(
+    public ReplProgram(
         ILogger log
         , IConfigReader config) 
             : base(log, config)
