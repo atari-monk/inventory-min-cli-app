@@ -13,17 +13,20 @@ public class ItemCommands
     private readonly IReadCommand<ItemFilterArgs> read;
     private readonly IInsertCommand<ItemInsertArgs> insert;
     private readonly IUpdateCommand<ItemUpdateArgs> update;
+    private readonly IDeleteCommand<DeleteArgs> delete;
 
     public ItemCommands(
         IReadCommand<ItemFilterArgs> read
         , IInsertCommand<ItemInsertArgs> insert
         , IUpdateCommand<ItemUpdateArgs> update
+        , IDeleteCommand<DeleteArgs> delete
         , IConfigReader config)
             : base(config)
     {
         this.read = read;
         this.insert = insert;
         this.update = update;
+        this.delete = delete;
     }
 
     [DefaultCommand()]
@@ -43,6 +46,13 @@ public class ItemCommands
     public void Update(ItemUpdateArgs model)
     {
         update.Update(model);
+        ReadAfterChange(GetReadTask(read, new ItemFilterArgs()));
+    }
+
+    [Command(DeleteCmd)]
+    public void Delete(DeleteArgs model)
+    {
+        delete.Delete(model);
         ReadAfterChange(GetReadTask(read, new ItemFilterArgs()));
     }
 }
