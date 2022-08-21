@@ -10,7 +10,6 @@ public abstract class AppTestApi
         var booter = new Bootstraper();
         booter.CreateApp();
         return booter;
-        throw new NotImplementedException();
     }
 
     protected IInventoryUnitOfWork GetUnitOfWork(
