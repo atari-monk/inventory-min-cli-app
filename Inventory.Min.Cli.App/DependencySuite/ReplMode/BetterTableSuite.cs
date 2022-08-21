@@ -1,13 +1,13 @@
-using DIHelper.Unity;
 using Inventory.Min.BetterTable;
+using Inventory.Min.Lib;
 using Unity;
 
-namespace Inventory.Min.Cli.App;
+namespace Inventory.Min.Cli.App.ReplMode;
 
-public class TableSuite 
-    : UnityDependencySuite
+public class BetterTableSuite 
+    : ReplSuite
 {
-    public TableSuite(
+    public BetterTableSuite(
         IUnityContainer container) 
         : base(container) 
     {
@@ -18,4 +18,7 @@ public class TableSuite
         RegisterSet<BetterTableSet>();
         RegisterSet<BetterTableDictionarySet>();
     }
+
+    protected override void RegisterCommands() => 
+        RegisterSet<Command2Set>();
 }

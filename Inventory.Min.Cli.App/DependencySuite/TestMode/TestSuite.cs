@@ -1,8 +1,9 @@
 using CLIHelper.Unity;
+using Inventory.Min.Cli.App.CmdMode;
 using Serilog.Wrapper.Unity;
 using Unity;
 
-namespace Inventory.Min.Cli.App;
+namespace Inventory.Min.Cli.App.TestMode;
 
 public class TestSuite 
     : CmdSuite

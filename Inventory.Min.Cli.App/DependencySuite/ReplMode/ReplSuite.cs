@@ -1,7 +1,7 @@
 using CommandDotNet.Unity.Helper;
 using Unity;
 
-namespace Inventory.Min.Cli.App;
+namespace Inventory.Min.Cli.App.ReplMode;
 
 public class ReplSuite 
     : AppSuite
