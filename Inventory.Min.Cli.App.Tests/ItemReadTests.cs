@@ -37,15 +37,6 @@ public class ItemReadTests
         , MemberType= typeof(ItemReadData))]
     public void Test02(int index, string[] cmd, string expected)
     {
-        // fixture.Booter.GetAppRunner().Verify(new Scenario
-        //     {
-        //         When = { Args = string.Join(' ', cmd) },
-        //         Then = { 
-        //             Output = "[18:36:18 INF] Read Item"
-        //                 + "Id | Name | Description | Category | CategoryId |"
-        //                 + "10 | Name | Description |          |            |" 
-        //         }
-        //     });
         fixture.RunCmd(fixture.Booter, cmd);
         var logger = fixture.Booter.GetLogger();
         logger

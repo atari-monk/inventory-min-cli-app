@@ -21,7 +21,7 @@ public class Bootstraper
     {
         container = new UnityContainer()
             .AddExtension(new Diagnostic());
-        var configSuite = new Config.Wrapper.ConfigSuite(container);
+        var configSuite = new ConfigSuite(container);
         configSuite.Register();
         suite = new SettingSuite(
             container.Resolve<IConfigReader>())

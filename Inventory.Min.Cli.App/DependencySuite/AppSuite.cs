@@ -1,6 +1,5 @@
 using CLIHelper.Unity;
 using DIHelper.Unity;
-using Inventory.Min.BetterTable;
 using Inventory.Min.Lib;
 using Inventory.Min.Table;
 using Serilog.Wrapper.Unity;
@@ -35,10 +34,10 @@ public class AppSuite
 
     protected override void RegisterDataMappings()
     {
-        RegisterSet<AppMappings>();
-        RegisterSet<DataFilter>();        
+        RegisterSet<MappingSet>();
+        RegisterSet<FilterSet>();        
     }
 
     protected override void RegisterCommands() => 
-        RegisterSet<AppCommands>();
+        RegisterSet<CommandSet>();
 }

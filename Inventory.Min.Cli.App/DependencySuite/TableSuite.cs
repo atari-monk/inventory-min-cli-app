@@ -4,10 +4,10 @@ using Unity;
 
 namespace Inventory.Min.Cli.App;
 
-public class BetterTableSuite 
+public class TableSuite 
     : UnityDependencySuite
 {
-    public BetterTableSuite(
+    public TableSuite(
         IUnityContainer container) 
         : base(container) 
     {
