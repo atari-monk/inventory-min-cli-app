@@ -6,7 +6,7 @@ public class ItemReadData
 {
     protected const string MainCmd = "item";
     protected const string Cmd = "ins";
-    protected const string Name = "Name";
+    protected const string Name = "Christine";
     protected const string Description = "Description";
 
     public static IEnumerable<object[]> Insert01 =>
@@ -27,14 +27,15 @@ public class ItemReadData
             {
                 0
                 , GetReadCmd()
-                , " Id{white} | Name | Description | Category | CategoryId |\r\n"
-                +      " {id} | Name | Description |          |            |\r\n"
+                , $"  {nameof(Item.Id)}  |   {nameof(Item.Name)}    | Description | Category | CategoryId |\r\n"
+                + $" {{id}} | {Name} | Description |          |            |\r\n"
             }
         };
 
     protected static Item GetItem()
     {
-        return new Item { Name = Name
+        return new Item { 
+            Name = Name
             , CurrencyId = 1
             , LengthUnitId = 1
             , VolumeUnitId = 1

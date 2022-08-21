@@ -1,3 +1,5 @@
+using Inventory.Min.Data;
+
 namespace Inventory.Min.Cli.App.Tests;
 
 public class ItemReadBetterTablesData
@@ -21,8 +23,11 @@ public class ItemReadBetterTablesData
             {
                 0
                 , GetReadCmd()
-                , "┌─────┐\r\n│ \u001b[38;2;255;0;255m Id\u001b[0m │\r\n├─────┤"
-                +        "\r\n│ \u001b[38;2;255;255;0m{id}\u001b[0m │\r\n└─────┘\r\n"
+                ,    "┌──────┬───────────┐\r\n"
+                +   $"│ \u001b[38;2;250;250;210m {nameof(Item.Id)} \u001b[0m │ \u001b[38;2;0;128;0m   {nameof(Item.Name)}  \u001b[0m │\r\n"
+                +    "├──────┼───────────┤\r\n"
+                +   $"│ \u001b[38;2;250;250;210m{{id}}\u001b[0m │ \u001b[38;2;0;128;0m{Name}\u001b[0m │\r\n"
+                +    "└──────┴───────────┘\r\n"
             }
         };
 }
