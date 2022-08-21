@@ -9,20 +9,20 @@ namespace Inventory.Min.Cli.App.Tests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ItemReadTests
+public class ItemReadBetterTablesTests
     : OrderTest
-        , IClassFixture<InventoryFixture>
+        , IClassFixture<InventoryBetterTablesFixture>
 {
-    private InventoryFixture fixture;
+    private InventoryBetterTablesFixture fixture;
 
-    public ItemReadTests(InventoryFixture fixture)
+    public ItemReadBetterTablesTests(InventoryBetterTablesFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(ItemReadData.Insert01)
-        , MemberType= typeof(ItemReadData))]
+    [MemberData(nameof(ItemReadBetterTablesData.Insert01)
+        , MemberType= typeof(ItemReadBetterTablesData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -33,8 +33,8 @@ public class ItemReadTests
     }
 
     [Theory]
-    [MemberData(nameof(ItemReadData.Read01)
-        , MemberType= typeof(ItemReadData))]
+    [MemberData(nameof(ItemReadBetterTablesData.Read01)
+        , MemberType= typeof(ItemReadBetterTablesData))]
     public void Test02(int index, string[] cmd, string expected)
     {
         fixture.RunCmd(fixture.Booter, cmd);
@@ -53,20 +53,6 @@ public class ItemReadTests
         var item = fixture.GetItem(fixture.Uow, index);
         var idStr = item.Id.ToString();
         expected = expected.Replace("{id}", idStr);
-        expected = expected.Replace("{white}", GetWhites(item));
         Assert.Equal(expected, output?.OutText);
-    }
-
-    private static string GetWhites(Item item)
-    {
-        return new string(' ', GetWhitesCount(item));
-    }
-
-    private static int GetWhitesCount(Item item)
-    {
-        var idLength = item.Id.ToString().Length;
-        if (idLength <= 2)
-            return 0;
-        return idLength - 2;
     }
 }

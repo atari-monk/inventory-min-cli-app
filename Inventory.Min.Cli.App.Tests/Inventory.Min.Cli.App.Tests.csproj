@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="BetterConsoleTables" Version="2.0.4-rc1" />
         <PackageReference Include="CommandDotNet.TestTools" Version="5.0.1" />
         <PackageReference Include="FluentAssertions" Version="5.10.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />

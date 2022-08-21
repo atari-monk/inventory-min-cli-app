@@ -4,10 +4,10 @@ namespace Inventory.Min.Cli.App.Tests;
 
 public class ItemReadData
 {
-    private const string MainCmd = "item";
-    private const string Cmd = "ins";
-    private const string Name = "Name";
-    private const string Description = "Description";
+    protected const string MainCmd = "item";
+    protected const string Cmd = "ins";
+    protected const string Name = "Name";
+    protected const string Description = "Description";
 
     public static IEnumerable<object[]> Insert01 =>
         new List<object[]>
@@ -27,11 +27,12 @@ public class ItemReadData
             {
                 0
                 , GetReadCmd()
-                , " Id{white} | Name | Description | Category | CategoryId |\r\n {id} | Name | Description |          |            |\r\n"
+                , " Id{white} | Name | Description | Category | CategoryId |\r\n"
+                +      " {id} | Name | Description |          |            |\r\n"
             }
         };
 
-    private static Item GetItem()
+    protected static Item GetItem()
     {
         return new Item { Name = Name
             , CurrencyId = 1
@@ -40,7 +41,7 @@ public class ItemReadData
             , MassUnitId = 3 };
     }
 
-    private static Item GetItem(params Action<Item>[] actions)
+    protected static Item GetItem(params Action<Item>[] actions)
     {
         var item = GetItem();
         foreach (var action in actions)
@@ -50,19 +51,19 @@ public class ItemReadData
         return item;
     }
 
-    private static string[] GetInsCmd()
+    protected static string[] GetInsCmd()
     {
         return new string[] { MainCmd, Cmd, Name };
     }
 
-    private static string[] GetInsCmd(params string[] args)
+    protected static string[] GetInsCmd(params string[] args)
     {
         var list = new List<string>(GetInsCmd());
         list.AddRange(args);
         return list.ToArray();
     }
 
-    private static string[] GetReadCmd(params string[] args)
+    protected static string[] GetReadCmd(params string[] args)
     {
         var list = new List<string>(new string[] { MainCmd });
         list.AddRange(args);
