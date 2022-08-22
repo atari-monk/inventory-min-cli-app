@@ -6,8 +6,8 @@ public class ItemReadData
 {
     protected const string MainCmd = "item";
     protected const string Cmd = "ins";
-    protected const string Name = "Christine";
-    protected const string Description = "She is 160 cm tall";
+    protected const string Name = "Painted Portrait";
+    protected const string Description = "Artist Maria Adamus 1995";
 
     public static IEnumerable<object[]> Insert01 =>
         new List<object[]>
@@ -27,7 +27,7 @@ public class ItemReadData
             {
                 0
                 , GetReadCmd()
-                , $"{{idcolleft}}{nameof(Item.Id)}{{idcolright}}|   {nameof(Item.Name)}    |    Description     | Category | CategoryId |\r\n"
+                , $"{{idcolleft}}{nameof(Item.Id)}{{idcolright}}|       {nameof(Item.Name)}       |       Description        | Category | CategoryId |\r\n"
                 + $" {{id}} | {Name} | {Description} |          |            |\r\n"
             }
         };
