@@ -11,16 +11,16 @@ namespace Inventory.Min.Cli.App.Tests;
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class ItemReadTests
     : OrderTest
-        , IClassFixture<InventoryFixture>
+        , IClassFixture<InventoryMyTablesFixture>
 {
     private const string RootPath = @"C:\kmazanek.gmail.com\Build\inventory-min-cli-app\";
     private const string ExpectedPath = @$"{RootPath}\Expected.txt";
     private const string ActualPath = @$"{RootPath}\Actual.txt";
     private const string EOL = "\r\n";
 
-    private InventoryFixture fixture;
+    private InventoryMyTablesFixture fixture;
 
-    public ItemReadTests(InventoryFixture fixture)
+    public ItemReadTests(InventoryMyTablesFixture fixture)
     {
         this.fixture = fixture;
     }
@@ -58,23 +58,22 @@ public class ItemReadTests
         var item = fixture.GetItem(fixture.Uow, index);
         var idStr = item.Id.ToString();
         expected = expected.Replace("{id}", idStr);
+        var table = fixture.ItemTable;
+        var idColumn = table.GetTable()[nameof(Item.Id)];
+        expected = expected.Replace("{idcolleft}", new string(' ', idColumn.Left + 1));
+        expected = expected.Replace("{idcolright}", new string(' ', idColumn.Right + 1));
         var outputText = output.OutText;
-        //File.AppendAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        //File.AppendAllLines(ActualPath, outputText!.Split(EOL).ToList());
-        //Assert.Equal(expected, outputText);
-        Assert.True(expected.Length > 0);
+        PrintToFile(expected, outputText);
+        Assert.Equal(expected, outputText);
     }
 
-    private static string GetWhites(Item item)
+    private static void PrintToFile(
+        string expected
+        , string outputText
+        , bool isActive = false)
     {
-        return new string(' ', GetWhitesCount(item));
-    }
-
-    private static int GetWhitesCount(Item item)
-    {
-        var idLength = item.Id.ToString().Length;
-        if (idLength <= 2)
-            return 0;
-        return idLength - 2;
+        if(isActive == false) return;
+        File.AppendAllLines(ExpectedPath, expected.Split(EOL).ToList());
+        File.AppendAllLines(ActualPath, outputText!.Split(EOL).ToList());
     }
 }

@@ -58,10 +58,24 @@ public class ItemReadBetterTablesTests
         var item = fixture.GetItem(fixture.Uow, index);
         var idStr = item.Id.ToString();
         expected = expected.Replace("{id}", idStr);
+        expected = expected.Replace("{idcol}", new string('─', idStr.Length + 2));
         var outputText = output.OutText;
-        //File.AppendAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        //File.AppendAllLines(ActualPath, outputText!.Split(EOL).ToList());
-        //Assert.Equal(expected, outputText);
-        Assert.True(expected.Length > 0);
+        var linesOut = outputText!.Split(EOL).ToList();
+        linesOut[0] = linesOut[0].Substring(0, 20);
+        linesOut[2] = linesOut[2].Substring(0, 20);
+        linesOut[4] = linesOut[4].Substring(0, 20);
+        PrintToFile(expected, linesOut);
+        outputText = string.Join(EOL, linesOut);
+        Assert.Equal(expected, outputText);
+    }
+
+    private static void PrintToFile(
+        string expected
+        , List<string> linesOut
+        , bool isActive = false)
+    {
+        if(isActive == false) return;
+        File.AppendAllLines(ExpectedPath, expected.Split(EOL).ToList());
+        File.AppendAllLines(ActualPath, linesOut);
     }
 }

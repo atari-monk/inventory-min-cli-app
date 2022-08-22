@@ -23,11 +23,11 @@ public class ItemReadBetterTablesData
             {
                 0
                 , GetReadCmd()
-                ,    "┌──────┬───────────┐\r\n"
+                ,    "┌{idcol}┬───────────┐\r\n"
                 +   $"│ \u001b[38;2;250;250;210m {nameof(Item.Id)} \u001b[0m │ \u001b[38;2;0;128;0m   {nameof(Item.Name)}  \u001b[0m │\r\n"
-                +    "├──────┼───────────┤\r\n"
+                +    "├{idcol}┼───────────┤\r\n"
                 +   $"│ \u001b[38;2;250;250;210m{{id}}\u001b[0m │ \u001b[38;2;0;128;0m{Name}\u001b[0m │\r\n"
-                +    "└──────┴───────────┘\r\n"
+                +    "└{idcol}┴───────────┘\r\n"
             }
         };
 }

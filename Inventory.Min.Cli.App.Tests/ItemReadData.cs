@@ -27,7 +27,7 @@ public class ItemReadData
             {
                 0
                 , GetReadCmd()
-                , $"  {nameof(Item.Id)}  |   {nameof(Item.Name)}    | Description | Category | CategoryId |\r\n"
+                , $"{{idcolleft}}{nameof(Item.Id)}{{idcolright}}|   {nameof(Item.Name)}    | Description | Category | CategoryId |\r\n"
                 + $" {{id}} | {Name} | Description |          |            |\r\n"
             }
         };

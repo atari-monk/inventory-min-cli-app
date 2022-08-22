@@ -1,5 +1,7 @@
+using DataToTable;
 using DIHelper;
 using Inventory.Min.Data;
+using Inventory.Min.Table;
 
 namespace Inventory.Min.Cli.App.TestApi;
 
@@ -18,6 +20,14 @@ public abstract class AppTestApi
         var unitOfWork = booter.MainSuite?.Resolve<IInventoryUnitOfWork>();
         ArgumentNullException.ThrowIfNull(unitOfWork);
         return unitOfWork;
+    }
+
+    protected ItemTable GetItemTable(
+        Bootstraper booter)
+    {
+        var table = booter.MainSuite?.Resolve<IDataToText<Item>>();
+        ArgumentNullException.ThrowIfNull(table);
+        return (ItemTable)table;
     }
 
     public void RunCmd(
