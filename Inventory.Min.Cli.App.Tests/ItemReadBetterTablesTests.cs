@@ -65,7 +65,7 @@ public class ItemReadBetterTablesTests
         linesOut[0] = linesOut[0].Substring(0, length);
         linesOut[2] = linesOut[2].Substring(0, length);
         linesOut[4] = linesOut[4].Substring(0, length);
-        PrintToFile(expected, linesOut);
+        PrintToFile(expected, linesOut, true);
         outputText = string.Join(EOL, linesOut);
         Assert.Equal(expected, outputText);
     }
