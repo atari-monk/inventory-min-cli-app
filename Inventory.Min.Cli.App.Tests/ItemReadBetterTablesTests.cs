@@ -61,9 +61,10 @@ public class ItemReadBetterTablesTests
         expected = expected.Replace("{idcol}", new string('─', idStr.Length + 2));
         var outputText = output.OutText;
         var linesOut = outputText!.Split(EOL).ToList();
-        linesOut[0] = linesOut[0].Substring(0, 20);
-        linesOut[2] = linesOut[2].Substring(0, 20);
-        linesOut[4] = linesOut[4].Substring(0, 20);
+        var length = linesOut[0].IndexOf("┐") + 1;
+        linesOut[0] = linesOut[0].Substring(0, length);
+        linesOut[2] = linesOut[2].Substring(0, length);
+        linesOut[4] = linesOut[4].Substring(0, length);
         PrintToFile(expected, linesOut);
         outputText = string.Join(EOL, linesOut);
         Assert.Equal(expected, outputText);
