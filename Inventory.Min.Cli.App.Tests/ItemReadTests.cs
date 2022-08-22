@@ -73,7 +73,7 @@ public class ItemReadTests
         , bool isActive = false)
     {
         if(isActive == false) return;
-        File.AppendAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        File.AppendAllLines(ActualPath, outputText!.Split(EOL).ToList());
+        File.WriteAllLines(ExpectedPath, expected.Split(EOL).ToList());
+        File.WriteAllLines(ActualPath, outputText!.Split(EOL).ToList());
     }
 }

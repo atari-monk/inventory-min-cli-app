@@ -166,7 +166,8 @@ public class ItemInsertData
 
     private static Item GetItem()
     {
-        return new Item { Name = Name
+        return new Item { 
+            Name = Name
             , CurrencyId = 1
             , LengthUnitId = 1
             , VolumeUnitId = 1

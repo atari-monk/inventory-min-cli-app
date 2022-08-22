@@ -76,7 +76,7 @@ public class ItemReadBetterTablesTests
         , bool isActive = false)
     {
         if(isActive == false) return;
-        File.AppendAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        File.AppendAllLines(ActualPath, linesOut);
+        File.WriteAllLines(ExpectedPath, expected.Split(EOL).ToList());
+        File.WriteAllLines(ActualPath, linesOut);
     }
 }
