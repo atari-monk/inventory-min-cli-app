@@ -89,6 +89,8 @@ public class ReadItemTableTests
         var idStr = item.Id.ToString();
         expected = expected.Replace("{id}", idStr);
         expected = expected.Replace("{idcol}", new string('─', idStr.Length + 2));
+        expected = expected.Replace("{idcolleft}", new string(' ', (idStr.Length + 2) - 4));
+        expected = expected.Replace("{idcolright}", new string(' ', (idStr.Length + 2) - 4 - ((idStr.Length + 2) - 4)));
         //expected = expected.Replace("{parentid}", childItem.Id.ToString());
         var outputText = output.OutText;
         //outputText = outputText.Replace("{parentid}", childItem.Id.ToString());

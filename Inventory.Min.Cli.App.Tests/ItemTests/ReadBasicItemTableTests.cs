@@ -60,13 +60,15 @@ public class ReadBasicItemTableTests
         var idStr = item.Id.ToString();
         expected = expected.Replace("{id}", idStr);
         expected = expected.Replace("{idcol}", new string('─', idStr.Length + 2));
+        expected = expected.Replace("{idcolleft}", new string(' ', (idStr.Length + 2) - 4));
+        expected = expected.Replace("{idcolright}", new string(' ', (idStr.Length + 2) - 4 - ((idStr.Length + 2) - 4)));
         var outputText = output.OutText;
         var linesOut = outputText!.Split(EOL).ToList();
         var length = linesOut[0].IndexOf("┐") + 1;
         linesOut[0] = linesOut[0].Substring(0, length);
         linesOut[2] = linesOut[2].Substring(0, length);
         linesOut[4] = linesOut[4].Substring(0, length);
-        PrintToFile(expected, linesOut);
+        PrintToFile(expected, linesOut, true);
         outputText = string.Join(EOL, linesOut);
         Assert.Equal(expected, outputText);
     }

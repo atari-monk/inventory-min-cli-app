@@ -29,7 +29,7 @@ public class ReadBasicItemTableData
                 0
                 , GetReadCmd("-t", nameof(BasicItemTable))
                 ,    "┌{idcol}┬──────────────────┬──────────────────────────┐\r\n"
-                +   $"│ \u001b[38;2;255;255;255m {nameof(Item.Id)} \u001b[0m │"
+                +   $"│ \u001b[38;2;255;255;255m{{idcolleft}}{nameof(Item.Id)}{{idcolright}}\u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m      {nameof(Item.Name)}      \u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m       {nameof(Item.Description)}      [0m │"
                 +    "\r\n"
