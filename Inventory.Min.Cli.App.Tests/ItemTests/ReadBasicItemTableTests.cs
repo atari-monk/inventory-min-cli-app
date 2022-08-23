@@ -9,7 +9,7 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ReadItemTableTests
+public class ReadBasicItemTableTests
     : OrderTest
         , IClassFixture<InventoryBetterTablesFixture>
 {
@@ -20,55 +20,26 @@ public class ReadItemTableTests
 
     private InventoryBetterTablesFixture fixture;
 
-    public ReadItemTableTests(InventoryBetterTablesFixture fixture)
+    public ReadBasicItemTableTests(InventoryBetterTablesFixture fixture)
     {
         this.fixture = fixture;
     }
 
-    // [Theory]
-    // [MemberData(nameof(ItemReadBetterTablesData.Insert01)
-    //     , MemberType= typeof(ItemReadBetterTablesData))]
-    // public void Test01(int index, Item expected, string[] cmd)
-    // {
-    //     fixture.AssertItemCount(fixture.Uow, index);
-    //     fixture.RunCmd(fixture.Booter, cmd);
-    //     fixture.AssertItemCount(fixture.Uow, index + 1);
-    //     var actual = fixture.GetItem(fixture.Uow, index);
-    //     fixture.AssertItem(expected, actual);
-    // }
-
     [Theory]
-    [MemberData(nameof(ReadItemTableData.Insert01)
-        , MemberType= typeof(ReadItemTableData))]
+    [MemberData(nameof(ReadBasicItemTableData.Insert01)
+        , MemberType= typeof(ReadBasicItemTableData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
-        //var childItem = fixture.GetItem(fixture.Uow, 0);
-        //var command = new List<string>(cmd);
-        //SetValue(command, "parentid", childItem.Id.ToString());
         fixture.RunCmd(fixture.Booter, cmd);
         fixture.AssertItemCount(fixture.Uow, index + 1);
         var actual = fixture.GetItem(fixture.Uow, index);
-        //expected.ParentId = childItem.Id;
         fixture.AssertItem(expected, actual);
     }
 
-    private void SetValue(
-        List<string> cmd
-        , string key
-        , string value)
-    {
-        cmd[GetIndex(cmd, key)] = value;
-    }
-
-    private int GetIndex(List<string> cmd, string value)
-    {
-        return cmd.IndexOf(value);
-    }
-
     [Theory]
-    [MemberData(nameof(ReadItemTableData.Read01)
-        , MemberType= typeof(ReadItemTableData))]
+    [MemberData(nameof(ReadBasicItemTableData.Read01)
+        , MemberType= typeof(ReadBasicItemTableData))]
     public void Test02(int index, string[] cmd, string expected)
     {
         fixture.RunCmd(fixture.Booter, cmd);
@@ -89,9 +60,7 @@ public class ReadItemTableTests
         var idStr = item.Id.ToString();
         expected = expected.Replace("{id}", idStr);
         expected = expected.Replace("{idcol}", new string('─', idStr.Length + 2));
-        //expected = expected.Replace("{parentid}", childItem.Id.ToString());
         var outputText = output.OutText;
-        //outputText = outputText.Replace("{parentid}", childItem.Id.ToString());
         var linesOut = outputText!.Split(EOL).ToList();
         var length = linesOut[0].IndexOf("┐") + 1;
         linesOut[0] = linesOut[0].Substring(0, length);
