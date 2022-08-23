@@ -1,4 +1,5 @@
 using System.Globalization;
+using Inventory.Min.BetterTable;
 using Inventory.Min.Data;
 using ModelHelper;
 
@@ -86,7 +87,7 @@ public class ItemReadBetterTablesData
             new object[] 
             {
                 0
-                , GetReadCmd()
+                , GetReadCmd("-t", nameof(ItemTable))
                 ,    "┌{idcol}┬──────────────────┬──────────────────────────┬──────────┬──────────────┬───────────────┬───────────┬────────┬────────┬───────┬──────────┬────────┬──────┐\r\n"
                 +   $"│ \u001b[38;2;255;255;255m {nameof(Item.Id)} \u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m      {nameof(Item.Name)}      \u001b[0m │"
