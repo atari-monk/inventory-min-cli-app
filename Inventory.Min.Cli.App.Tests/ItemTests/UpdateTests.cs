@@ -3,30 +3,30 @@ using Inventory.Min.Data;
 using Xunit;
 using XUnit.Helper;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ItemUpdateTests
+public class UpdateTests
     : OrderTest
     , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
 
-    public ItemUpdateTests(InventoryFixture fixture)
+    public UpdateTests(InventoryFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(ItemUpdateData.Insert01), MemberType= typeof(ItemUpdateData))]
+    [MemberData(nameof(UpdateData.Insert01), MemberType= typeof(UpdateData))]
     public void Test01(string[] cmd)
     {
         fixture.RunCmd(fixture.Booter, cmd);
     }
 
     [Theory]
-    [MemberData(nameof(ItemUpdateData.Update01), MemberType= typeof(ItemUpdateData))]
+    [MemberData(nameof(UpdateData.Update01), MemberType= typeof(UpdateData))]
     public void Test02(int index, Item expected, string[] cmd)
     {
         Assert.True(index >= 0 && index < 100);
@@ -43,14 +43,14 @@ public class ItemUpdateTests
     }
 
     [Theory]
-    [MemberData(nameof(ItemUpdateData.Insert02), MemberType= typeof(ItemUpdateData))]
+    [MemberData(nameof(UpdateData.Insert02), MemberType= typeof(UpdateData))]
     public void Test03(string[] cmd)
     {
         fixture.RunCmd(fixture.Booter, cmd);
     }
 
     [Theory]
-    [MemberData(nameof(ItemUpdateData.Update02), MemberType= typeof(ItemUpdateData))]
+    [MemberData(nameof(UpdateData.Update02), MemberType= typeof(UpdateData))]
     public void Test04(int index, Item expected, string[] cmd)
     {
         Assert.True(index >= 0 && index < 2);

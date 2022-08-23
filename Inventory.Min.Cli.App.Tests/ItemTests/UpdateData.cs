@@ -1,8 +1,8 @@
 using Inventory.Min.Data;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ItemUpdateData
+public class UpdateData
 {
     public static IEnumerable<object[]> Insert01 =>
         new List<object[]>

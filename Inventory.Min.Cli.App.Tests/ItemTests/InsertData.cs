@@ -1,8 +1,8 @@
 using Inventory.Min.Data;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ItemInsertData
+public class InsertData
 {
     private const string MainCmd = "item";
     private const string Cmd = "ins";

@@ -3,24 +3,24 @@ using Inventory.Min.Data;
 using Xunit;
 using XUnit.Helper;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ItemInsertTests
+public class InsertTests
     : OrderTest
         , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
 
-    public ItemInsertTests(InventoryFixture fixture)
+    public InsertTests(InventoryFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(ItemInsertData.Insert01)
-        , MemberType= typeof(ItemInsertData))]
+    [MemberData(nameof(InsertData.Insert01)
+        , MemberType= typeof(InsertData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -31,8 +31,8 @@ public class ItemInsertTests
     }
 
     [Theory]
-    [MemberData(nameof(ItemInsertData.Insert02)
-        , MemberType= typeof(ItemInsertData))]
+    [MemberData(nameof(InsertData.Insert02)
+        , MemberType= typeof(InsertData))]
     public void Test02(Item expected, string[] cmd)
     {
         const int PrevTestInsertCount = 20;

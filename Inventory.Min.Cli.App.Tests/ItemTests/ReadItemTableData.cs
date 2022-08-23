@@ -3,10 +3,10 @@ using Inventory.Min.BetterTable;
 using Inventory.Min.Data;
 using ModelHelper;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ItemReadBetterTablesData
-    : ItemReadData
+public class ReadItemTableData
+    : ReadMyItemTableData
 {
     private const int Quantity = 1;
     //private const int CategoryId = 1;

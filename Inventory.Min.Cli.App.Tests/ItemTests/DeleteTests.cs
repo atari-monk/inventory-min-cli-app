@@ -3,18 +3,18 @@ using Xunit;
 using XUnit.Helper;
 using Moq;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ItemDeleteTests
+public class DeleteTests
     : OrderTest
         , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
     private Mock<TextReader> cliInput;
 
-    public ItemDeleteTests(InventoryFixture fixture)
+    public DeleteTests(InventoryFixture fixture)
     {
         this.fixture = fixture;
         cliInput = new Mock<TextReader>();
@@ -22,16 +22,16 @@ public class ItemDeleteTests
     }
 
     [Theory]
-    [MemberData(nameof(ItemDeleteData.Insert01)
-        , MemberType= typeof(ItemDeleteData))]
+    [MemberData(nameof(DeleteData.Insert01)
+        , MemberType= typeof(DeleteData))]
     public void Test01(string[] cmd)
     {
         fixture.RunCmd(fixture.Booter, cmd);
     }
 
     [Theory]
-    [MemberData(nameof(ItemDeleteData.Delete01)
-        , MemberType= typeof(ItemDeleteData))]
+    [MemberData(nameof(DeleteData.Delete01)
+        , MemberType= typeof(DeleteData))]
     public void Test02(string[] cmd)
     {
         SetupUserResponses("n");
@@ -47,8 +47,8 @@ public class ItemDeleteTests
     }
 
     [Theory]
-    [MemberData(nameof(ItemDeleteData.Delete01)
-        , MemberType= typeof(ItemDeleteData))]
+    [MemberData(nameof(DeleteData.Delete01)
+        , MemberType= typeof(DeleteData))]
     public void Test03(string[] cmd)
     {
         SetupUserResponses("y");

@@ -1,8 +1,8 @@
 using Inventory.Min.Data;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ItemReadData
+public class ReadMyItemTableData
 {
     protected const string MainCmd = "item";
     protected const string Cmd = "ins";

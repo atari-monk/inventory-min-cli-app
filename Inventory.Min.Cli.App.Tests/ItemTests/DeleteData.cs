@@ -1,6 +1,6 @@
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ItemDeleteData
+public class DeleteData
 {
     private const string MainCmd = "item";
     private const string InsCmd = "ins";

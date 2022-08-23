@@ -5,11 +5,11 @@ using Serilog.Sinks.InMemory.Assertions;
 using Xunit;
 using XUnit.Helper;
 
-namespace Inventory.Min.Cli.App.Tests;
+namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ItemReadTests
+public class ReadMyItemTableTests
     : OrderTest
         , IClassFixture<InventoryMyTablesFixture>
 {
@@ -20,14 +20,14 @@ public class ItemReadTests
 
     private InventoryMyTablesFixture fixture;
 
-    public ItemReadTests(InventoryMyTablesFixture fixture)
+    public ReadMyItemTableTests(InventoryMyTablesFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(ItemReadData.Insert01)
-        , MemberType= typeof(ItemReadData))]
+    [MemberData(nameof(ReadMyItemTableData.Insert01)
+        , MemberType= typeof(ReadMyItemTableData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -38,8 +38,8 @@ public class ItemReadTests
     }
 
     [Theory]
-    [MemberData(nameof(ItemReadData.Read01)
-        , MemberType= typeof(ItemReadData))]
+    [MemberData(nameof(ReadMyItemTableData.Read01)
+        , MemberType= typeof(ReadMyItemTableData))]
     public void Test02(int index, string[] cmd, string expected)
     {
         fixture.RunCmd(fixture.Booter, cmd);
