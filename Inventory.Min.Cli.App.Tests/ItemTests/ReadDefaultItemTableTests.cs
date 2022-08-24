@@ -26,8 +26,8 @@ public class ReadDefaultItemTableTests
     }
 
     [Theory]
-    [MemberData(nameof(ReadBasicItemTableData.Insert01)
-        , MemberType= typeof(ReadBasicItemTableData))]
+    [MemberData(nameof(ReadDefaultItemTableData.Insert01)
+        , MemberType= typeof(ReadDefaultItemTableData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -38,8 +38,8 @@ public class ReadDefaultItemTableTests
     }
 
     [Theory]
-    [MemberData(nameof(ReadBasicItemTableData.Read01)
-        , MemberType= typeof(ReadBasicItemTableData))]
+    [MemberData(nameof(ReadDefaultItemTableData.Read01)
+        , MemberType= typeof(ReadDefaultItemTableData))]
     public void Test02(int index, string[] cmd, string expected)
     {
         fixture.RunCmd(fixture.Booter, cmd);
