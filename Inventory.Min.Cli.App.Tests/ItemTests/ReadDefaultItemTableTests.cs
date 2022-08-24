@@ -43,6 +43,7 @@ public class ReadDefaultItemTableTests
     public void Test02(int index, string[] cmd, string expected)
     {
         fixture.RunCmd(fixture.Booter, cmd);
+        var item = fixture.GetItem(fixture.Uow, 0);
         var logger = fixture.Booter.GetLogger();
         logger
             .Should()
