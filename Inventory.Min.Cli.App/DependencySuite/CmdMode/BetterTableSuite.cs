@@ -20,5 +20,5 @@ public class BetterTableSuite
     }
 
     protected override void RegisterCommands() => 
-        RegisterSet<Command2Set>();
+        RegisterSet<CommandBetterTableSet>();
 }
