@@ -36,7 +36,8 @@ public abstract class ItemTestApi
         Assert.True(actual?.Id > 0);
         Assert.Equal(expected.Name, actual?.Name);
         Assert.Equal(expected.Description, actual?.Description);
-        Assert.Equal(expected.Quantity, actual?.Quantity);
+        Assert.Equal(expected.InitialCount, actual?.InitialCount);
+        Assert.Equal(expected.CurrentCount, actual?.CurrentCount);
         Assert.Equal(expected.PurchaseDate, actual?.PurchaseDate);
         Assert.Equal(expected.CurrencyId, actual?.CurrencyId);
         Assert.Equal(expected.PurchasePrice, actual?.PurchasePrice);

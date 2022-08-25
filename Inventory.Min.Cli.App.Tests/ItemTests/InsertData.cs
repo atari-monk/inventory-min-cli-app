@@ -135,20 +135,27 @@ public class InsertData
             new object[] 
             {
                 17
-                , GetItem((item) => item.Quantity = 66)
+                , GetItem((item) => item.InitialCount = 66)
                 , GetCmds("-q", "66")
+            }
+            ,
+             new object[] 
+            {
+                18
+                , GetItem((item) => item.CurrentCount = 62)
+                , GetCmds("--currentCount", "62")
             }
             ,
             new object[] 
             {
-                18
+                19
                 , GetItem((item) => item.Mass = 400)
                 , GetCmds("--mass", "400")
             }
             ,
             new object[] 
             {
-                19
+                20
                 , GetItem((item) => item.MassUnitId = 4)
                 , GetCmds("--massUnitId", "4")
             }

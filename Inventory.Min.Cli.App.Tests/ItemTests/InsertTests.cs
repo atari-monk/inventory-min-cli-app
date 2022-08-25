@@ -35,7 +35,7 @@ public class InsertTests
         , MemberType= typeof(InsertData))]
     public void Test02(Item expected, string[] cmd)
     {
-        const int PrevTestInsertCount = 20;
+        const int PrevTestInsertCount = 21;
         fixture.AssertItemCount(fixture.Uow, PrevTestInsertCount);
         var parent = fixture.GetItem(fixture.Uow, elementIndex: PrevTestInsertCount - 1);
         var command = new List<string>(cmd);

@@ -47,7 +47,8 @@ public class UpdateData
                 4
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 10)
+                    , (item) => item.InitialCount = 10
+                    )
                 , new string[] {"item", "upd", "itemid", "-q", "10"} 
             }
             , new object[] 
@@ -55,53 +56,79 @@ public class UpdateData
                 5
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20)
-                , new string[] {"item", "upd", "itemid", "--quantity", "20"} 
+                    , (item) => item.InitialCount = 20
+                    )
+                , new string[] {"item", "upd", "itemid", "--initialCount", "20"} 
             }
             , new object[] 
             {
                 6
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
-                    , (item) => item.CategoryId = 1)
-                , new string[] {"item", "upd", "itemid", "-c", "1"} 
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 40
+                    )
+                , new string[] {"item", "upd", "itemid", "--currentCount", "40"} 
             }
             , new object[] 
             {
                 7
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
-                    , (item) => item.CategoryId = 2)
-                , new string[] {"item", "upd", "itemid", "--categoryId", "2"} 
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
+                    )
+                , new string[] {"item", "upd", "itemid", "--currentCount", "33"} 
             }
             , new object[] 
             {
                 8
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
-                    , (item) => item.CategoryId = 2
-                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 17, 16, 0))
-                , new string[] {"item", "upd", "itemid", "-p", "18.08.2022 17:16"} 
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
+                    , (item) => item.CategoryId = 1)
+                , new string[] {"item", "upd", "itemid", "-c", "1"} 
             }
             , new object[] 
             {
                 9
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
-                    , (item) => item.CategoryId = 2
-                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0))
-                , new string[] {"item", "upd", "itemid", "--purchaseDate", "18.08.2022 18:00"} 
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
+                    , (item) => item.CategoryId = 2)
+                , new string[] {"item", "upd", "itemid", "--categoryId", "2"} 
             }
             , new object[] 
             {
                 10
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 17, 16, 0))
+                , new string[] {"item", "upd", "itemid", "-p", "18.08.2022 17:16"} 
+            }
+            , new object[] 
+            {
+                11
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
+                    , (item) => item.CategoryId = 2
+                    , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0))
+                , new string[] {"item", "upd", "itemid", "--purchaseDate", "18.08.2022 18:00"} 
+            }
+            , new object[] 
+            {
+                12
+                , GetItem((item) => item.Name = "--update"
+                    , (item) => item.Description = "--descUpd"
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 2)
@@ -109,10 +136,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                11
+                13
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3)
@@ -120,10 +148,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                12
+                14
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -132,10 +161,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                13
+                15
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -144,10 +174,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                14
+                16
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -157,10 +188,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                15
+                17
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -170,10 +202,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                16
+                18
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -184,10 +217,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                17
+                19
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -198,10 +232,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                18
+                20
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -213,10 +248,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                19
+                21
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -228,10 +264,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                20
+                22
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -244,10 +281,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                21
+                23
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -260,10 +298,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                22
+                24
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -277,10 +316,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                23
+                25
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -294,10 +334,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                24
+                26
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -312,10 +353,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                25
+                27
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -330,10 +372,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                26
+                28
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -349,10 +392,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                27
+                29
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -368,10 +412,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                28
+                30
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -388,10 +433,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                29
+                31
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -408,10 +454,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                30
+                32
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -429,10 +476,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                31
+                33
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -450,10 +498,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                32
+                34
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -472,10 +521,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                33
+                35
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -494,10 +544,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                34
+                36
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -517,10 +568,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                35
+                37
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -540,10 +592,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                36
+                38
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -564,10 +617,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                37
+                39
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -588,10 +642,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                38
+                40
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -613,10 +668,11 @@ public class UpdateData
             }
             , new object[] 
             {
-                39
+                41
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -655,7 +711,8 @@ public class UpdateData
                 0
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
@@ -680,7 +737,8 @@ public class UpdateData
                 1
                 , GetItem((item) => item.Name = "--update"
                     , (item) => item.Description = "--descUpd"
-                    , (item) => item.Quantity = 20
+                    , (item) => item.InitialCount = 20
+                    , (item) => item.CurrentCount = 33
                     , (item) => item.CategoryId = 2
                     , (item) => item.PurchaseDate = new DateTime(2022, 8, 18, 18, 0, 0)
                     , (item) => item.CurrencyId = 3
