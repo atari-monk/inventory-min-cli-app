@@ -15,9 +15,16 @@ public class ServicesRegister
     public void RegisterServices()
     {
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-        SetDbContextForDockerCompose();
+        SetDbContextForLocalDb();
+        //SetDbContextForDockerCompose();
         builder.Services.AddScoped<IItemRepo, ItemRepo<InventoryDbContext>>();
         builder.Services.AddScoped<IInventoryUnitOfWork, InventoryUnitOfWork<InventoryDbContext>>();
+    }
+
+    private void SetDbContextForLocalDb()
+    {
+        builder.Services.AddDbContext<InventoryDbContext>(options =>
+            options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=FoodDb"));
     }
 
     private void SetDbContextForDockerCompose()

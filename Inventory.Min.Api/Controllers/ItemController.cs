@@ -27,4 +27,15 @@ public class ItemController
         var items = uow.Item.Get();
 		return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
     }
+
+    [HttpGet("{id}", Name=nameof(GetItemById))]
+	public ActionResult<ItemReadDto> GetItemById(int id)
+	{
+		var item = uow.Item.GetByID(id);
+		if(item != null)
+		{
+			return Ok(mapper.Map<ItemReadDto>(item));
+		}
+		return NotFound();
+	}
 }
