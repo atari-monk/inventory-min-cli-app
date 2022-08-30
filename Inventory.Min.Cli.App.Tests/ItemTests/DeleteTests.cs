@@ -1,6 +1,5 @@
 using Inventory.Min.Cli.App.TestApi;
 using Xunit;
-using XUnit.Helper;
 using Moq;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
@@ -8,7 +7,7 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class DeleteTests
-    : OrderTest
+    : InventoryTest
         , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
@@ -69,18 +68,5 @@ public class DeleteTests
             cliInput.InSequence(sequence).Setup(x => x.ReadLine()).Returns(response);
         }
         return sequence;
-    }
-
-    private void SetValue(
-        List<string> cmd
-        , string key
-        , string value)
-    {
-        cmd[GetIndex(cmd, key)] = value;
-    }
-
-    private int GetIndex(List<string> cmd, string value)
-    {
-        return cmd.IndexOf(value);
     }
 }

@@ -1,14 +1,13 @@
 using Inventory.Min.Cli.App.TestApi;
 using Inventory.Min.Data;
 using Xunit;
-using XUnit.Helper;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class UpdateTests
-    : OrderTest
+    : InventoryTest
     , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
@@ -67,18 +66,5 @@ public class UpdateTests
         fixture.AssertItem(
             expected
             , itemUpdDb);
-    }
-
-    private void SetValue(
-        List<string> cmd
-        , string key
-        , string value)
-    {
-        cmd[GetIndex(cmd, key)] = value;
-    }
-
-    private int GetIndex(List<string> cmd, string value)
-    {
-        return cmd.IndexOf(value);
     }
 }

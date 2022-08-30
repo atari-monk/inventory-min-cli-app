@@ -45,13 +45,6 @@ public class InsertTests
         fixture.AssertItem(expected, actual);
     }
 
-    [Fact]
-    public void Test03()
-    {
-        var seeder = new TestSeeder();
-        seeder.Seed();
-    }
-
     [Theory]
     [MemberData(nameof(InsertData.Insert03)
         , MemberType= typeof(InsertData))]

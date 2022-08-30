@@ -14,14 +14,6 @@ public static class InsertData
         return new Item
         {
             Name = Name
-            ,
-            CurrencyId = 1
-            ,
-            LengthUnitId = 1
-            ,
-            VolumeUnitId = 1
-            ,
-            MassUnitId = 1
         };
     }
 
