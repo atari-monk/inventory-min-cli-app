@@ -6,6 +6,43 @@ namespace Inventory.Min.Cli.App.TestApi;
 public abstract class ItemTestApi
     : AppTestApi
 {
+    private readonly Dictionary<string, Action<Item, Item>> asserts;
+
+    public ItemTestApi()
+    {
+        asserts = GetAsserts();
+    }
+
+    private Dictionary<string, Action<Item, Item>> GetAsserts()
+    {
+        return new Dictionary<string, Action<Item, Item>>
+        {
+              { nameof(Item.Id), (e, a) => Assert.True(a?.Id > 0) }
+            , { nameof(Item.Name), (e, a) => Assert.Equal(e.Name, a?.Name) }
+            , { nameof(Item.Description), (e, a) => Assert.Equal(e.Description, a?.Description) }
+            , { nameof(Item.CategoryId), (e, a) => Assert.Equal(e.CategoryId, a?.CategoryId) }
+            , { nameof(Item.InitialCount), (e, a) => Assert.Equal(e.InitialCount, a?.InitialCount) }
+            , { nameof(Item.CurrentCount), (e, a) => Assert.Equal(e.CurrentCount, a?.CurrentCount) }
+            , { nameof(Item.PurchaseDate), (e, a) => Assert.Equal(e.PurchaseDate, a?.PurchaseDate) }
+            , { nameof(Item.CurrencyId), (e, a) => Assert.Equal(e.CurrencyId, a?.CurrencyId) }
+            , { nameof(Item.PurchasePrice), (e, a) => Assert.Equal(e.PurchasePrice, a?.PurchasePrice) }
+            , { nameof(Item.SellPrice), (e, a) => Assert.Equal(e.SellPrice, a?.SellPrice) }
+            , { nameof(Item.ImagePath), (e, a) => Assert.Equal(e.ImagePath, a?.ImagePath) }
+            , { nameof(Item.LengthUnitId), (e, a) => Assert.Equal(e.LengthUnitId, a?.LengthUnitId) }
+            , { nameof(Item.Length), (e, a) => Assert.Equal(e.Length, a?.Length) }
+            , { nameof(Item.Heigth), (e, a) => Assert.Equal(e.Heigth, a?.Heigth) }
+            , { nameof(Item.Depth), (e, a) => Assert.Equal(e.Depth, a?.Depth) }
+            , { nameof(Item.Diameter), (e, a) => Assert.Equal(e.Diameter, a?.Diameter) }
+            , { nameof(Item.VolumeUnitId), (e, a) => Assert.Equal(e.VolumeUnitId, a?.VolumeUnitId) }
+            , { nameof(Item.Volume), (e, a) => Assert.Equal(e.Volume, a?.Volume) }
+            , { nameof(Item.Mass), (e, a) => Assert.Equal(e.Mass, a?.Mass) }
+            , { nameof(Item.MassUnitId), (e, a) => Assert.Equal(e.MassUnitId, a?.MassUnitId) }
+            , { nameof(Item.TagId), (e, a) => Assert.Equal(e.TagId, a?.TagId) }
+            , { nameof(Item.StateId), (e, a) => Assert.Equal(e.StateId, a?.StateId) }
+            , { nameof(Item.ParentId), (e, a) => Assert.Equal(e.ParentId, a?.ParentId) }
+        };
+    }
+
     protected static IEnumerable<Item>? GetItem(
         IInventoryUnitOfWork? unitOfWork)
     {
@@ -33,27 +70,17 @@ public abstract class ItemTestApi
         Item expected
         , Item actual)
     {
-        Assert.True(actual?.Id > 0);
-        Assert.Equal(expected.Name, actual?.Name);
-        Assert.Equal(expected.Description, actual?.Description);
-        Assert.Equal(expected.InitialCount, actual?.InitialCount);
-        Assert.Equal(expected.CurrentCount, actual?.CurrentCount);
-        Assert.Equal(expected.PurchaseDate, actual?.PurchaseDate);
-        Assert.Equal(expected.CurrencyId, actual?.CurrencyId);
-        Assert.Equal(expected.PurchasePrice, actual?.PurchasePrice);
-        Assert.Equal(expected.SellPrice, actual?.SellPrice);
-        Assert.Equal(expected.ImagePath, actual?.ImagePath);
-        Assert.Equal(expected.LengthUnitId, actual?.LengthUnitId);
-        Assert.Equal(expected.Length, actual?.Length);
-        Assert.Equal(expected.Heigth, actual?.Heigth);
-        Assert.Equal(expected.Depth, actual?.Depth);
-        Assert.Equal(expected.Diameter, actual?.Diameter);
-        Assert.Equal(expected.VolumeUnitId, actual?.VolumeUnitId);
-        Assert.Equal(expected.Volume, actual?.Volume);
-        Assert.Equal(expected.Mass, actual?.Mass);
-        Assert.Equal(expected.MassUnitId, actual?.MassUnitId);
-        Assert.Equal(expected.TagId, actual?.TagId);
-        Assert.Equal(expected.StateId, actual?.StateId);
-        Assert.Equal(expected.ParentId, actual?.ParentId);
+        foreach (var assert in asserts.Values)
+        {
+            assert(expected, actual);       
+        }       
+    }
+
+    public void AssertItem(
+        Item expected
+        , Item actual
+        , string key)
+    {
+        asserts[key](expected, actual);       
     }
 }
