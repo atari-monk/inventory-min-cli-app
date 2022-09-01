@@ -23,7 +23,7 @@ public class ReadMyItemTableData
             {
                 0
                 , d.GetReadCmd()
-                , $"{{idcolleft}}{nameof(Item.Id)}{{idcolright}}|       {nameof(Item.Name)}       |       Description        | Category | CategoryId |\r\n"
+                , $"{{idcolleft}}{nameof(Item.Id)}{{idcolright}}|     {nameof(Item.Name)}     |     Description     | Category | CategoryId |\r\n"
                 + $" {{id}} | {d.Name} | {d.Description} |          |            |\r\n"
             }
         };
