@@ -1,5 +1,6 @@
 using Inventory.Min.BetterTable;
 using Inventory.Min.Data;
+using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
@@ -13,7 +14,7 @@ public class ReadDefaultItemTableData
     private const int Mass = 500;
     private const int StateId = 1;
     private const string StateName = "In storage";
-    private const string ParentName = Name;
+    private const string ParentName = d.Name;
 
     public new static IEnumerable<object[]> Insert01 =>
         new List<object[]>
@@ -21,8 +22,8 @@ public class ReadDefaultItemTableData
             new object[] 
             {
                 0
-                , GetItem() 
-                , GetInsCmd()
+                , d.GetItem() 
+                , d.GetInsCmd()
             }
         };
 
@@ -32,16 +33,16 @@ public class ReadDefaultItemTableData
             new object[] 
             {
                 1
-                , GetItem(
-                    (item) => item.Description = Description
+                , d.GetItem(
+                    (item) => item.Description = d.Description
                     , (item) => item.CategoryId = CategoryId
                     , (item) => item.InitialCount = InitialCount
                     , (item) => item.CurrentCount = CurrentCount
                     , (item) => item.Mass = Mass
                     , (item) => item.StateId = StateId
                     ) 
-                , GetInsCmd(
-                    "-d", Description
+                , d.GetInsCmd(
+                    "-d", d.Description
                     , "-c", CategoryId.ToString()
                     , "-q", InitialCount.ToString()
                     , "--currentCount", CurrentCount.ToString()
@@ -58,7 +59,7 @@ public class ReadDefaultItemTableData
             new object[] 
             {
                 1
-                , GetReadCmd("-t", nameof(DefaultItemTableTest))
+                , d.GetReadCmd("-t", nameof(DefaultItemTableTest))
                 ,    "┌──────────────────┬──────────────────────────┬──────────┬──────────────┬──────────────┬──────┬────────────┬──────────────────┐\r\n│"
                 +   GetHeader()
                 +    "├──────────────────┼──────────────────────────┼──────────┼──────────────┼──────────────┼──────┼────────────┼──────────────────┤\r\n│"
@@ -85,7 +86,7 @@ public class ReadDefaultItemTableData
         private static string GetRow1()
         {
             return 
-                $" \u001b[38;2;255;255;255m{Name}\u001b[0m │"
+                $" \u001b[38;2;255;255;255m{d.Name}\u001b[0m │"
             +   $" \u001b[38;2;255;255;255m                        [0m │"
             +   $" \u001b[38;2;255;255;255m        [0m │"
             +   $" \u001b[38;2;255;255;255m            [0m │"
@@ -99,8 +100,8 @@ public class ReadDefaultItemTableData
         private static string GetRow2()
         {
             return 
-            $"│ \u001b[38;2;255;255;255m{Name}\u001b[0m │"
-            +   $" \u001b[38;2;255;255;255m{Description}[0m │"
+            $"│ \u001b[38;2;255;255;255m{d.Name}\u001b[0m │"
+            +   $" \u001b[38;2;255;255;255m{d.Description}[0m │"
             +   $" \u001b[38;2;255;255;255m  {CategoryName}  [0m │"
             +   $" \u001b[38;2;255;255;255m      {InitialCount}     [0m │"
             +   $" \u001b[38;2;255;255;255m      {CurrentCount}     [0m │"

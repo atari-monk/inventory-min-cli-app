@@ -1,5 +1,6 @@
 using Inventory.Min.BetterTable;
 using Inventory.Min.Data;
+using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
@@ -16,16 +17,14 @@ public class ReadSizeItemTableData
             new object[] 
             {
                 0
-                , GetItem(
+                , d.GetItem(
                     (item) => item.Length = Length
                     , (item) => item.Heigth = Heigth
-                    , (item) => item.Depth = Depth
-                    ) 
-                , GetInsCmd(
+                    , (item) => item.Depth = Depth) 
+                , d.GetInsCmd(
                     "-l", Length.ToString()
                     , "-e", Heigth.ToString()
-                    , "--depth", Depth.ToString()
-                    )
+                    , "--depth", Depth.ToString())
             }
         };
 
@@ -35,7 +34,7 @@ public class ReadSizeItemTableData
             new object[] 
             {
                 0
-                , GetReadCmd("-t", nameof(SizeItemTableTest))
+                , d.GetReadCmd("-t", nameof(SizeItemTableTest))
                 ,    "┌──────────────────┬────────┬────────┬───────┐\r\n│"
                 +   GetHeader()
                 +    "├──────────────────┼────────┼────────┼───────┤\r\n│"
@@ -57,7 +56,7 @@ public class ReadSizeItemTableData
         private static string GetRow1()
         {
             return 
-                $" \u001b[38;2;255;255;255m{Name}\u001b[0m │"
+                $" \u001b[38;2;255;255;255m{d.Name}\u001b[0m │"
             +   $" \u001b[38;2;255;255;255m {Length} [0m │"
             +   $" \u001b[38;2;255;255;255m {Heigth} [0m │"
             +   $" \u001b[38;2;255;255;255m {Depth}[0m │"

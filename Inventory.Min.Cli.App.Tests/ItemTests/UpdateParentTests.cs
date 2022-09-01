@@ -1,13 +1,15 @@
 using Inventory.Min.Cli.App.TestApi;
 using Xunit;
-using u = Inventory.Min.Cli.App.Tests.ItemTests.Util;
+using XUnit.Helper;
+using t = Inventory.Min.Cli.App.Tests.ItemTests.TestUtil;
+using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class UpdateParentTests
-    : InventoryTest
+    : OrderTest
         , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
@@ -35,12 +37,12 @@ public class UpdateParentTests
         var itemDb = fixture.GetItem(fixture.Uow, 0);
         var itemDb2 = fixture.GetItem(fixture.Uow, 1);
         var command = new List<string>(cmd);
-        SetValue(command, "itemid", itemDb.Id.ToString());
-        SetValue(command, "parentid", itemDb2.Id.ToString());
+        t.SetValue(command, "itemid", itemDb.Id.ToString());
+        t.SetValue(command, "parentid", itemDb2.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
         fixture.AssertItemCount(fixture.Uow, 2);
         itemDb = fixture.GetItem(fixture.Uow, 0);
-        var expected = u.GetItem();
+        var expected = d.GetItem();
         expected.ParentId = itemDb2.Id;
         fixture.AssertItem(expected, itemDb, propName);
     }

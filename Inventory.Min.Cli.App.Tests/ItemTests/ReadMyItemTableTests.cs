@@ -4,6 +4,7 @@ using Inventory.Min.Data;
 using Serilog.Sinks.InMemory.Assertions;
 using Xunit;
 using XUnit.Helper;
+using t = Inventory.Min.Cli.App.Tests.ItemTests.TestUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
@@ -13,11 +14,6 @@ public class ReadMyItemTableTests
     : OrderTest
         , IClassFixture<InventoryMyTablesFixture>
 {
-    private const string RootPath = @"C:\kmazanek.gmail.com\Build\inventory-min-cli-app\";
-    private const string ExpectedPath = @$"{RootPath}\Expected.txt";
-    private const string ActualPath = @$"{RootPath}\Actual.txt";
-    private const string EOL = "\r\n";
-
     private InventoryMyTablesFixture fixture;
 
     public ReadMyItemTableTests(InventoryMyTablesFixture fixture)
@@ -63,17 +59,7 @@ public class ReadMyItemTableTests
         expected = expected.Replace("{idcolleft}", new string(' ', idColumn.Left + 1));
         expected = expected.Replace("{idcolright}", new string(' ', idColumn.Right + 1));
         var outputText = output.OutText;
-        PrintToFile(expected, outputText);
+        t.PrintToFile(expected, outputText);
         Assert.Equal(expected, outputText);
-    }
-
-    private static void PrintToFile(
-        string expected
-        , string outputText
-        , bool isActive = false)
-    {
-        if(isActive == false) return;
-        File.WriteAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        File.WriteAllLines(ActualPath, outputText!.Split(EOL).ToList());
     }
 }

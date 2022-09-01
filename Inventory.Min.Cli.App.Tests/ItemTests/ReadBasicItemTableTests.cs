@@ -4,6 +4,7 @@ using Inventory.Min.Data;
 using Serilog.Sinks.InMemory.Assertions;
 using Xunit;
 using XUnit.Helper;
+using t = Inventory.Min.Cli.App.Tests.ItemTests.TestUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
@@ -13,11 +14,6 @@ public class ReadBasicItemTableTests
     : OrderTest
         , IClassFixture<InventoryBetterTablesFixture>
 {
-    private const string RootPath = @"C:\kmazanek.gmail.com\Build\inventory-min-cli-app\";
-    private const string ExpectedPath = @$"{RootPath}\Expected.txt";
-    private const string ActualPath = @$"{RootPath}\Actual.txt";
-    private const string EOL = "\r\n";
-
     private InventoryBetterTablesFixture fixture;
 
     public ReadBasicItemTableTests(InventoryBetterTablesFixture fixture)
@@ -55,30 +51,14 @@ public class ReadBasicItemTableTests
             .WithValue("Item");
         var output = (IOutMock)fixture.Booter.GetOut();
         fixture.AssertItemCount(fixture.Uow, index + 1);
-        //var childItem = fixture.GetItem(fixture.Uow, 0);
-        //var item = fixture.GetItem(fixture.Uow, index);
-        //var idStr = item.Id.ToString();
-        //expected = expected.Replace("{id}", "1");
-        //expected = expected.Replace("{idcol}", new string('─', idStr.Length + 2));
         var outputText = output.OutText;
-        //outputText = outputText.Replace(idStr, "1");
-        var linesOut = outputText!.Split(EOL).ToList();
+        var linesOut = outputText!.Split(t.EOL).ToList();
         var length = linesOut[0].IndexOf("┐") + 1;
         linesOut[0] = linesOut[0].Substring(0, length);
         linesOut[2] = linesOut[2].Substring(0, length);
         linesOut[4] = linesOut[4].Substring(0, length);
-        PrintToFile(expected, linesOut, true);
-        outputText = string.Join(EOL, linesOut);
+        t.PrintToFile(expected, linesOut, true);
+        outputText = string.Join(t.EOL, linesOut);
         Assert.Equal(expected, outputText);
-    }
-
-    private static void PrintToFile(
-        string expected
-        , List<string> linesOut
-        , bool isActive = false)
-    {
-        if(isActive == false) return;
-        File.WriteAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        File.WriteAllLines(ActualPath, linesOut);
     }
 }

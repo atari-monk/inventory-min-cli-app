@@ -1,13 +1,15 @@
 using Inventory.Min.Cli.App.TestApi;
 using Xunit;
 using Moq;
+using XUnit.Helper;
+using t = Inventory.Min.Cli.App.Tests.ItemTests.TestUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class DeleteTests
-    : InventoryTest
+    : OrderTest
         , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
@@ -37,7 +39,7 @@ public class DeleteTests
         fixture.AssertItemCount(fixture.Uow, 1);
         var itemDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
         var command = new List<string>(cmd);
-        SetValue(command, "itemid", itemDb.Id.ToString());
+        t.SetValue(command, "itemid", itemDb.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
         fixture.AssertItemCount(fixture.Uow, 1);
         var actual = fixture.GetItem(fixture.Uow, 0);
@@ -54,7 +56,7 @@ public class DeleteTests
         fixture.AssertItemCount(fixture.Uow, 1);
         var itemDb = fixture.GetItem(fixture.Uow, elementIndex: 0);
         var command = new List<string>(cmd);
-        SetValue(command, "itemid", itemDb.Id.ToString());
+        t.SetValue(command, "itemid", itemDb.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
         fixture.AssertItemCount(fixture.Uow, 0);
         Assert.Throws<ArgumentOutOfRangeException>(()=>fixture.GetItem(fixture.Uow, 0));

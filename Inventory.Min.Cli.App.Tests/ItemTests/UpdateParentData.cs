@@ -1,5 +1,5 @@
 using Inventory.Min.Data;
-using u = Inventory.Min.Cli.App.Tests.ItemTests.Util;
+using u = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 

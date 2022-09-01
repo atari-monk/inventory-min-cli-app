@@ -4,6 +4,7 @@ using Inventory.Min.Data;
 using Serilog.Sinks.InMemory.Assertions;
 using Xunit;
 using XUnit.Helper;
+using t = Inventory.Min.Cli.App.Tests.ItemTests.TestUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
@@ -13,11 +14,6 @@ public class ReadDefaultItemTableTests
     : OrderTest
         , IClassFixture<InventoryBetterTablesFixture>
 {
-    private const string RootPath = @"C:\kmazanek.gmail.com\Build\inventory-min-cli-app\";
-    private const string ExpectedPath = @$"{RootPath}\Expected.txt";
-    private const string ActualPath = @$"{RootPath}\Actual.txt";
-    private const string EOL = "\r\n";
-
     private InventoryBetterTablesFixture fixture;
 
     public ReadDefaultItemTableTests(InventoryBetterTablesFixture fixture)
@@ -45,25 +41,12 @@ public class ReadDefaultItemTableTests
         fixture.AssertItemCount(fixture.Uow, index);
         var parent = fixture.GetItem(fixture.Uow, 0);
         var command = new List<string>(cmd);
-        SetValue(command, "parentId", parent.Id.ToString());
+        t.SetValue(command, "parentId", parent.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
         fixture.AssertItemCount(fixture.Uow, index + 1);
         var actual = fixture.GetItem(fixture.Uow, index);
         expected.ParentId = parent.Id;
         fixture.AssertItem(expected, actual);
-    }
-
-    private void SetValue(
-        List<string> cmd
-        , string key
-        , string value)
-    {
-        cmd[GetIndex(cmd, key)] = value;
-    }
-
-    private int GetIndex(List<string> cmd, string value)
-    {
-        return cmd.IndexOf(value);
     }
 
     [Theory]
@@ -85,23 +68,13 @@ public class ReadDefaultItemTableTests
             .WithValue("Item");
         var output = (IOutMock)fixture.Booter.GetOut();
         var outputText = output.OutText;
-        var linesOut = outputText!.Split(EOL).ToList();
+        var linesOut = outputText!.Split(t.EOL).ToList();
         var length = linesOut[0].IndexOf("┐") + 1;
         linesOut[0] = linesOut[0].Substring(0, length);
         linesOut[2] = linesOut[2].Substring(0, length);
         linesOut[5] = linesOut[5].Substring(0, length);
-        PrintToFile(expected, linesOut, true);
-        outputText = string.Join(EOL, linesOut);
+        t.PrintToFile(expected, linesOut, true);
+        outputText = string.Join(t.EOL, linesOut);
         Assert.Equal(expected, outputText);
-    }
-
-    private static void PrintToFile(
-        string expected
-        , List<string> linesOut
-        , bool isActive = false)
-    {
-        if(isActive == false) return;
-        File.WriteAllLines(ExpectedPath, expected.Split(EOL).ToList());
-        File.WriteAllLines(ActualPath, linesOut);
     }
 }
