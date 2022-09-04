@@ -47,8 +47,8 @@ public class MediumTableData
                     , "-q", InitialCount.ToString()
                     , "--currentCount", CurrentCount.ToString()
                     , "--mass", Mass.ToString()
-                    , "-a", StateId.ToString()
-                    , "-r", "parentId"
+                    , "-g", StateId.ToString()
+                    , "-f", "parentId"
                     )
             }
         };
@@ -59,7 +59,7 @@ public class MediumTableData
             new object[] 
             {
                 1
-                , d.GetReadCmd("-t", ItemTablesTest.Medium.ToString())
+                , d.GetReadCmd("-t", ItemTablesTest.MediumTest.ToString())
                 ,    "┌──────────────┬─────────────────────┬──────────┬──────────────┬──────────────┬──────┬────────────┬──────────────┐\r\n│"
                 +   GetHeader()
                 +    "├──────────────┼─────────────────────┼──────────┼──────────────┼──────────────┼──────┼────────────┼──────────────┤\r\n│"

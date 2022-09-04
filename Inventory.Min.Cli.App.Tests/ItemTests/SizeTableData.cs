@@ -34,7 +34,7 @@ public class SizeTableData
             new object[] 
             {
                 0
-                , d.GetReadCmd("-t", ItemTablesTest.Size.ToString())
+                , d.GetReadCmd("-t", ItemTablesTest.SizeTest.ToString())
                 ,    "┌──────────────┬────────┬────────┬───────┐\r\n│"
                 +   GetHeader()
                 +    "├──────────────┼────────┼────────┼───────┤\r\n│"

@@ -46,10 +46,10 @@ public class VerboseTableData
                     , "-q", InitialCount.ToString()
                     , "--currentCount", CurrentCount.ToString()
                     , "-p", PurchaseDate
-                    , "-u", PurchasePrice.ToString(), "-s", SellPrice.ToString()
+                    , "-r", PurchasePrice.ToString(), "-s", SellPrice.ToString()
                     , "-l", Length.ToString(), "-e", Heigth.ToString()
-                    , "--depth", Depth.ToString(), "--diameter", Diameter.ToString()
-                    , "--volume", Volume.ToString(), "--mass", Mass.ToString())
+                    , "-t", Depth.ToString(), "--diameter", Diameter.ToString()
+                    , "-v", Volume.ToString(), "--mass", Mass.ToString())
             }
         };
 
@@ -59,7 +59,7 @@ public class VerboseTableData
             new object[] 
             {
                 0
-                , d.GetReadCmd("-t", ItemTablesTest.Verbose.ToString())
+                , d.GetReadCmd("-t", ItemTablesTest.VerboseTest.ToString())
                 ,    "┌──────────────┬─────────────────────┬──────────────┬──────────────┬──────────────┬───────────────┬───────────┬────────┬────────┬───────┬──────────┬────────┬──────┐\r\n│"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Name)}    \u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Description)}    [0m │"

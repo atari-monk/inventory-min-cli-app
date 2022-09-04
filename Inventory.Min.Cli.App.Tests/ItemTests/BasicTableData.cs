@@ -27,7 +27,7 @@ public class BasicTableData
             new object[] 
             {
                 0
-                , d.GetReadCmd("-t", ItemTablesTest.Basic.ToString())
+                , d.GetReadCmd("-t", ItemTablesTest.BasicTest.ToString())
                 ,    "┌──────────────┬─────────────────────┐\r\n│"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Name)}    \u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Description)}    [0m │"
