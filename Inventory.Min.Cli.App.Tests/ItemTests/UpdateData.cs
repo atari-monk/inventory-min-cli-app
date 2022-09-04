@@ -34,15 +34,15 @@ public class UpdateData
             , new object[] { 13, nameof(Item.SellPrice), d.GetItem((item) => item.SellPrice = 78.1m), d.GetUpdCmd("--sellPrice", "78.1") }
             , new object[] { 14, nameof(Item.ImagePath), d.GetItem((item) => item.ImagePath = ImgRoot + Img1), d.GetUpdCmd("-i", ImgRoot + Img1) }
             , new object[] { 15, nameof(Item.ImagePath), d.GetItem((item) => item.ImagePath = ImgRoot + Img2), d.GetUpdCmd("--imagePath", ImgRoot + Img2) }
-            , new object[] { 16, nameof(Item.Length), d.GetItem((item) => item.Length = 66.6), d.GetUpdCmd("-e", "66.6") }
+            , new object[] { 16, nameof(Item.Length), d.GetItem((item) => item.Length = 66.6), d.GetUpdCmd("-l", "66.6") }
             , new object[] { 17, nameof(Item.Length), d.GetItem((item) => item.Length = 23.4), d.GetUpdCmd("--length", "23.4") }
-            , new object[] { 18, nameof(Item.Heigth), d.GetItem((item) => item.Heigth = 78.3), d.GetUpdCmd("-g", "78.3") }
+            , new object[] { 18, nameof(Item.Heigth), d.GetItem((item) => item.Heigth = 78.3), d.GetUpdCmd("-e", "78.3") }
             , new object[] { 19, nameof(Item.Heigth), d.GetItem((item) => item.Heigth = 45.2), d.GetUpdCmd("--heigth", "45.2") }
             , new object[] { 20, nameof(Item.Depth), d.GetItem((item) => item.Depth = 13.6), d.GetUpdCmd("-t", "13.6") }
             , new object[] { 21, nameof(Item.Depth), d.GetItem((item) => item.Depth = 17.3), d.GetUpdCmd("--depth", "17.3") }
             , new object[] { 22, nameof(Item.Diameter), d.GetItem((item) => item.Diameter = 167.3), d.GetUpdCmd("-a", "167.3") }
             , new object[] { 23, nameof(Item.Diameter), d.GetItem((item) => item.Diameter = 222.2), d.GetUpdCmd("--diameter", "222.2") }
-            , new object[] { 24, nameof(Item.Volume), d.GetItem((item) => item.Volume = 31.7), d.GetUpdCmd("-o", "31.7") }
+            , new object[] { 24, nameof(Item.Volume), d.GetItem((item) => item.Volume = 31.7), d.GetUpdCmd("-v", "31.7") }
             , new object[] { 25, nameof(Item.Volume), d.GetItem((item) => item.Volume = 41.3), d.GetUpdCmd("--volume", "41.3") }
             , new object[] { 26, nameof(Item.Mass), d.GetItem((item) => item.Mass = 222.9), d.GetUpdCmd("-m", "222.9") }
             , new object[] { 27, nameof(Item.Mass), d.GetItem((item) => item.Mass = 453.2), d.GetUpdCmd("--mass", "453.2") }
@@ -50,15 +50,15 @@ public class UpdateData
             , new object[] { 29, nameof(Item.CategoryId), d.GetItem((item) => item.CategoryId = 2), d.GetUpdCmd("--categoryId", "2") }
             , new object[] { 30, nameof(Item.CurrencyId), d.GetItem((item) => item.CurrencyId = 1), d.GetUpdCmd("-u", "1") }
             , new object[] { 31, nameof(Item.CurrencyId), d.GetItem((item) => item.CurrencyId = 2), d.GetUpdCmd("--currencyId", "2") }
-            , new object[] { 32, nameof(Item.LengthUnitId), d.GetItem((item) => item.LengthUnitId = 1), d.GetUpdCmd("-l", "1") }
+            , new object[] { 32, nameof(Item.LengthUnitId), d.GetItem((item) => item.LengthUnitId = 1), d.GetUpdCmd("--lengthUnitId", "1") }
             , new object[] { 33, nameof(Item.LengthUnitId), d.GetItem((item) => item.LengthUnitId = 2), d.GetUpdCmd("--lengthUnitId", "2") }
-            , new object[] { 34, nameof(Item.VolumeUnitId), d.GetItem((item) => item.VolumeUnitId = 1), d.GetUpdCmd("-v", "1") }
+            , new object[] { 34, nameof(Item.VolumeUnitId), d.GetItem((item) => item.VolumeUnitId = 1), d.GetUpdCmd("--volumeUnitId", "1") }
             , new object[] { 35, nameof(Item.VolumeUnitId), d.GetItem((item) => item.VolumeUnitId = 2), d.GetUpdCmd("--volumeUnitId", "2") }
             , new object[] { 36, nameof(Item.MassUnitId), d.GetItem((item) => item.MassUnitId = 1), d.GetUpdCmd("-x", "1") }
             , new object[] { 37, nameof(Item.MassUnitId), d.GetItem((item) => item.MassUnitId = 2), d.GetUpdCmd("--massUnitId", "2") }
             , new object[] { 38, nameof(Item.TagId), d.GetItem((item) => item.TagId = 1), d.GetUpdCmd("-z", "1") }
             , new object[] { 39, nameof(Item.TagId), d.GetItem((item) => item.TagId = 2), d.GetUpdCmd("--tagId", "2") }
-            , new object[] { 40, nameof(Item.StateId), d.GetItem((item) => item.StateId = 1), d.GetUpdCmd("-b", "1") }
+            , new object[] { 40, nameof(Item.StateId), d.GetItem((item) => item.StateId = 1), d.GetUpdCmd("-g", "1") }
             , new object[] { 41, nameof(Item.StateId), d.GetItem((item) => item.StateId = 2), d.GetUpdCmd("--stateId", "2") }
         };
 }
