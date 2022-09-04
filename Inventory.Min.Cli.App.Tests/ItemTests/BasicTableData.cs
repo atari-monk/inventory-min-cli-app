@@ -6,8 +6,8 @@ using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ReadBasicItemTableData
-    : ReadMyItemTableData
+public class BasicTableData
+    : MyTableData
 {
     public new static IEnumerable<object[]> Insert01 =>
         new List<object[]>
@@ -27,7 +27,7 @@ public class ReadBasicItemTableData
             new object[] 
             {
                 0
-                , d.GetReadCmd("-t", nameof(BasicItemTableTest))
+                , d.GetReadCmd("-t", ItemTablesTest.Basic.ToString())
                 ,    "┌──────────────┬─────────────────────┐\r\n│"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Name)}    \u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Description)}    [0m │"

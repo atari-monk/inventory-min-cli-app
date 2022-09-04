@@ -4,8 +4,8 @@ using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ReadSizeItemTableData
-    : ReadMyItemTableData
+public class SizeTableData
+    : MyTableData
 {
     private const double Length = 34.5;
     private const double Heigth = 14.2;
@@ -34,7 +34,7 @@ public class ReadSizeItemTableData
             new object[] 
             {
                 0
-                , d.GetReadCmd("-t", nameof(SizeItemTableTest))
+                , d.GetReadCmd("-t", ItemTablesTest.Size.ToString())
                 ,    "┌──────────────┬────────┬────────┬───────┐\r\n│"
                 +   GetHeader()
                 +    "├──────────────┼────────┼────────┼───────┤\r\n│"

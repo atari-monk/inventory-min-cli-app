@@ -3,7 +3,7 @@ using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ReadMyItemTableData
+public class MyTableData
 {
     public static IEnumerable<object[]> Insert01 =>
         new List<object[]>

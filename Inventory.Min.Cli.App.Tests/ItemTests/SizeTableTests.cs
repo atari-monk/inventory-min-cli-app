@@ -10,20 +10,20 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ReadMyItemTableTests
+public class SizeTableTests
     : OrderTest
-        , IClassFixture<InventoryMyTablesFixture>
+        , IClassFixture<InventoryBetterTablesFixture>
 {
-    private InventoryMyTablesFixture fixture;
+    private InventoryBetterTablesFixture fixture;
 
-    public ReadMyItemTableTests(InventoryMyTablesFixture fixture)
+    public SizeTableTests(InventoryBetterTablesFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(ReadMyItemTableData.Insert01)
-        , MemberType= typeof(ReadMyItemTableData))]
+    [MemberData(nameof(SizeTableData.Insert01)
+        , MemberType= typeof(SizeTableData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -34,10 +34,11 @@ public class ReadMyItemTableTests
     }
 
     [Theory]
-    [MemberData(nameof(ReadMyItemTableData.Read01)
-        , MemberType= typeof(ReadMyItemTableData))]
+    [MemberData(nameof(SizeTableData.Read01)
+        , MemberType= typeof(SizeTableData))]
     public void Test02(int index, string[] cmd, string expected)
     {
+        fixture.AssertItemCount(fixture.Uow, index + 1);
         fixture.RunCmd(fixture.Booter, cmd);
         var logger = fixture.Booter.GetLogger();
         logger
@@ -50,16 +51,14 @@ public class ReadMyItemTableTests
             .WithProperty("1")
             .WithValue("Item");
         var output = (IOutMock)fixture.Booter.GetOut();
-        fixture.AssertItemCount(fixture.Uow, index + 1);
-        var item = fixture.GetItem(fixture.Uow, index);
-        var idStr = item.Id.ToString();
-        expected = expected.Replace("{id}", idStr);
-        var table = fixture.ItemTable;
-        var idColumn = table.GetTable()[nameof(Item.Id)];
-        expected = expected.Replace("{idcolleft}", new string(' ', idColumn.Left + 1));
-        expected = expected.Replace("{idcolright}", new string(' ', idColumn.Right + 1));
         var outputText = output.OutText;
-        t.PrintToFile(expected, outputText);
+        var linesOut = outputText!.Split(t.EOL).ToList();
+        var length = linesOut[0].IndexOf("┐") + 1;
+        linesOut[0] = linesOut[0].Substring(0, length);
+        linesOut[2] = linesOut[2].Substring(0, length);
+        linesOut[4] = linesOut[4].Substring(0, length);
+        t.PrintToFile(expected, linesOut, true);
+        outputText = string.Join(t.EOL, linesOut);
         Assert.Equal(expected, outputText);
     }
 }

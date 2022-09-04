@@ -10,20 +10,20 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class ReadSizeItemTableTests
+public class BasicTableTests
     : OrderTest
         , IClassFixture<InventoryBetterTablesFixture>
 {
     private InventoryBetterTablesFixture fixture;
 
-    public ReadSizeItemTableTests(InventoryBetterTablesFixture fixture)
+    public BasicTableTests(InventoryBetterTablesFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(ReadSizeItemTableData.Insert01)
-        , MemberType= typeof(ReadSizeItemTableData))]
+    [MemberData(nameof(BasicTableData.Insert01)
+        , MemberType= typeof(BasicTableData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -34,11 +34,10 @@ public class ReadSizeItemTableTests
     }
 
     [Theory]
-    [MemberData(nameof(ReadSizeItemTableData.Read01)
-        , MemberType= typeof(ReadSizeItemTableData))]
+    [MemberData(nameof(BasicTableData.Read01)
+        , MemberType= typeof(BasicTableData))]
     public void Test02(int index, string[] cmd, string expected)
     {
-        fixture.AssertItemCount(fixture.Uow, index + 1);
         fixture.RunCmd(fixture.Booter, cmd);
         var logger = fixture.Booter.GetLogger();
         logger
@@ -51,6 +50,7 @@ public class ReadSizeItemTableTests
             .WithProperty("1")
             .WithValue("Item");
         var output = (IOutMock)fixture.Booter.GetOut();
+        fixture.AssertItemCount(fixture.Uow, index + 1);
         var outputText = output.OutText;
         var linesOut = outputText!.Split(t.EOL).ToList();
         var length = linesOut[0].IndexOf("┐") + 1;

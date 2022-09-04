@@ -6,8 +6,8 @@ using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ReadItemTableData
-    : ReadMyItemTableData
+public class VerboseTableData
+    : MyTableData
 {
     private const int InitialCount = 10;
     private const int CurrentCount = 5;
@@ -59,7 +59,7 @@ public class ReadItemTableData
             new object[] 
             {
                 0
-                , d.GetReadCmd("-t", nameof(ItemTableTest))
+                , d.GetReadCmd("-t", ItemTablesTest.Verbose.ToString())
                 ,    "┌──────────────┬─────────────────────┬──────────────┬──────────────┬──────────────┬───────────────┬───────────┬────────┬────────┬───────┬──────────┬────────┬──────┐\r\n│"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Name)}    \u001b[0m │"
                 +   $" \u001b[38;2;255;255;255m    {nameof(Item.Description)}    [0m │"

@@ -29,7 +29,7 @@ public class AppSuite
 
     protected override void RegisterConsoleOutput()
     {
-        RegisterSet<MyTableLibSet>();
+        RegisterSet<MyTableSet>();
     }
 
     protected override void RegisterDataMappings()

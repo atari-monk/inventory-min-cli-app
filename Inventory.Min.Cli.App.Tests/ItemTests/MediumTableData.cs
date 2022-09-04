@@ -4,8 +4,8 @@ using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public class ReadDefaultItemTableData
-    : ReadMyItemTableData
+public class MediumTableData
+    : MyTableData
 {
     private const int CategoryId = 1;
     private const string CategoryName = "Food";
@@ -59,7 +59,7 @@ public class ReadDefaultItemTableData
             new object[] 
             {
                 1
-                , d.GetReadCmd("-t", nameof(DefaultItemTableTest))
+                , d.GetReadCmd("-t", ItemTablesTest.Medium.ToString())
                 ,    "┌──────────────┬─────────────────────┬──────────┬──────────────┬──────────────┬──────┬────────────┬──────────────┐\r\n│"
                 +   GetHeader()
                 +    "├──────────────┼─────────────────────┼──────────┼──────────────┼──────────────┼──────┼────────────┼──────────────┤\r\n│"
