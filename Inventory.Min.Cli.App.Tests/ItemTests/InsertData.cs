@@ -32,7 +32,7 @@ public static class InsertData
             {
                 3
                 , d.GetItem((item) => item.PurchasePrice = 10)
-                , d.GetInsCmd("-u", "10")
+                , d.GetInsCmd("-r", "10")
             }
             ,
             new object[]
@@ -68,21 +68,21 @@ public static class InsertData
             {
                 8
                 , d.GetItem((item) => item.Depth = 44)
-                , d.GetInsCmd("--depth", "44")
+                , d.GetInsCmd("-t", "44")
             }
             ,
             new object[]
             {
                 9
                 , d.GetItem((item) => item.Diameter = 66)
-                , d.GetInsCmd("--diameter", "66")
+                , d.GetInsCmd("-a", "66")
             }
             ,
             new object[]
             {
                 10
                 , d.GetItem((item) => item.Volume = 116)
-                , d.GetInsCmd("--volume", "116")
+                , d.GetInsCmd("-v", "116")
             }
             ,
             new object[]
@@ -103,7 +103,7 @@ public static class InsertData
             {
                 13
                 , d.GetItem((item) => item.Mass = 400)
-                , d.GetInsCmd("--mass", "400")
+                , d.GetInsCmd("-m", "400")
             }
         };
 
@@ -114,7 +114,7 @@ public static class InsertData
             {
                 14
                 , d.GetItem((item) => item.Description = "test self ref")
-                , d.GetInsCmd("-d", "test self ref", "-r", "parentId")
+                , d.GetInsCmd("-d", "test self ref", "-f", "parentId")
             }
         };
 
@@ -153,21 +153,21 @@ public static class InsertData
             {
                 19
                 , d.GetItem((item) => item.TagId = 1)
-                , d.GetInsCmd("-t", "1")
+                , d.GetInsCmd("-z", "1")
             }
             ,
             new object[]
             {
                 20
                 , d.GetItem((item) => item.StateId = 1)
-                , d.GetInsCmd("-a", "1")
+                , d.GetInsCmd("-g", "1")
             }
             ,
             new object[]
             {
                 21
                 , d.GetItem((item) => item.MassUnitId = 5)
-                , d.GetInsCmd("--massUnitId", "5")
+                , d.GetInsCmd("-x", "5")
             }
         };
 }
