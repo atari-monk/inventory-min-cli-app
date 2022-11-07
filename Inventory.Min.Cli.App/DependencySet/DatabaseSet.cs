@@ -17,7 +17,13 @@ public class DatabaseSet
     {
         Container
             .RegisterSingleton<InventoryDbContext>()
+            .RegisterSingleton<ICategoryRepo, CategoryRepo<InventoryDbContext>>()
+            .RegisterSingleton<ICurrencyRepo, CurrencyRepo<InventoryDbContext>>()
+            .RegisterSingleton<IStateRepo, StateRepo<InventoryDbContext>>()
+            .RegisterSingleton<ITagRepo, TagRepo<InventoryDbContext>>()
+            .RegisterSingleton<IUnitRepo, UnitRepo<InventoryDbContext>>()
             .RegisterSingleton<IItemRepo, ItemRepo<InventoryDbContext>>()
+            .RegisterSingleton<IItemRepoAsync, ItemRepoAsync<InventoryDbContext>>()
             .RegisterSingleton<IInventoryUnitOfWork, InventoryUnitOfWork<InventoryDbContext>>();
     }
 }
