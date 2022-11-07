@@ -2,7 +2,7 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 public static class TestUtil
 {
-    private const string RootPath = @"C:\kmazanek.gmail.com\Build\inventory-min-cli-app\";
+    private const string RootPath = @"C:\atari-monk\Build\inventory-min-cli-app\";
     private const string ExpectedPath = @$"{RootPath}\Expected.txt";
     private const string ActualPath = @$"{RootPath}\Actual.txt";
     public const string EOL = "\r\n";

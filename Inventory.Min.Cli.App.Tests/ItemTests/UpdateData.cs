@@ -5,7 +5,7 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 public class UpdateData
 {
-    private const string ImgRoot = @"C:\kmazanek.gmail.com\Image\Inventory";
+    private const string ImgRoot = @"C:\atari-monk\Image\Inventory";
     private const string Img1 = @"\img1.png";
     private const string Img2 = @"\img2.png";
 

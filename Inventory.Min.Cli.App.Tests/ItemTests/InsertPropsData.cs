@@ -2,9 +2,9 @@ using d = Inventory.Min.Cli.App.Tests.ItemTests.DataUtil;
 
 namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
-public static class InsertData
+public static class InsertPropsData
 {
-    public static IEnumerable<object[]> Insert01 =>
+    public static IEnumerable<object[]> InsertProps =>
         new List<object[]>
         {
             new object[]
@@ -46,8 +46,8 @@ public static class InsertData
             {
                 5
                 , d.GetItem((item) => item.ImagePath =
-                    @"C:\kmazanek.gmail.com\Image\Inventory")
-                , d.GetInsCmd("-i", @"C:\kmazanek.gmail.com\Image\Inventory")
+                    @"C:\atari-monk\Image\Inventory")
+                , d.GetInsCmd("-i", @"C:\atari-monk\Image\Inventory")
             }
             ,
             new object[]
@@ -104,70 +104,6 @@ public static class InsertData
                 13
                 , d.GetItem((item) => item.Mass = 400)
                 , d.GetInsCmd("-m", "400")
-            }
-        };
-
-    public static IEnumerable<object[]> Insert02 =>
-        new List<object[]>
-        {
-            new object[]
-            {
-                14
-                , d.GetItem((item) => item.Description = "test self ref")
-                , d.GetInsCmd("-d", "test self ref", "-f", "parentId")
-            }
-        };
-
-    public static IEnumerable<object[]> Insert03 =>
-        new List<object[]>
-        {
-            new object[]
-            {
-                15
-                , d.GetItem((item) => item.CategoryId = 1)
-                , d.GetInsCmd("-c", "1")
-            }
-            ,
-            new object[]
-            {
-                16
-                , d.GetItem((item) => item.CurrencyId = 1)
-                , d.GetInsCmd("--currencyId", "1")
-            }
-            ,
-            new object[]
-            {
-                17
-                , d.GetItem((item) => item.LengthUnitId = 1)
-                , d.GetInsCmd("--lengthUnitId", "1")
-            }
-            ,
-            new object[]
-            {
-                18
-                , d.GetItem((item) => item.VolumeUnitId = 4)
-                , d.GetInsCmd("--volumeUnitId", "4")
-            }
-            ,
-            new object[]
-            {
-                19
-                , d.GetItem((item) => item.TagId = 1)
-                , d.GetInsCmd("-z", "1")
-            }
-            ,
-            new object[]
-            {
-                20
-                , d.GetItem((item) => item.StateId = 1)
-                , d.GetInsCmd("-g", "1")
-            }
-            ,
-            new object[]
-            {
-                21
-                , d.GetItem((item) => item.MassUnitId = 5)
-                , d.GetInsCmd("-x", "5")
             }
         };
 }

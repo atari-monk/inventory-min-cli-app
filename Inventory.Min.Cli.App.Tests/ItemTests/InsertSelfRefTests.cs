@@ -8,20 +8,20 @@ namespace Inventory.Min.Cli.App.Tests.ItemTests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class InsertTests
+public class InsertSelfRefTests
     : OrderTest
         , IClassFixture<InventoryFixture>
 {
     private InventoryFixture fixture;
 
-    public InsertTests(InventoryFixture fixture)
+    public InsertSelfRefTests(InventoryFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(InsertData.Insert01)
-        , MemberType= typeof(InsertData))]
+    [MemberData(nameof(InsertSelfRefData.InsertParent)
+        , MemberType = typeof(InsertSelfRefData))]
     public void Test01(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -30,10 +30,10 @@ public class InsertTests
         var actual = fixture.GetItem(fixture.Uow, index);
         fixture.AssertItem(expected, actual);
     }
-   
+
     [Theory]
-    [MemberData(nameof(InsertData.Insert02)
-        , MemberType= typeof(InsertData))]
+    [MemberData(nameof(InsertSelfRefData.InsertSelfRef)
+        , MemberType= typeof(InsertSelfRefData))]
     public void Test02(int index, Item expected, string[] cmd)
     {
         fixture.AssertItemCount(fixture.Uow, index);
@@ -46,16 +46,4 @@ public class InsertTests
         expected.ParentId = parent.Id;
         fixture.AssertItem(expected, actual);
     }
-
-    [Theory]
-    [MemberData(nameof(InsertData.Insert03)
-        , MemberType= typeof(InsertData))]
-    public void Test04(int index, Item expected, string[] cmd)
-    {
-        fixture.AssertItemCount(fixture.Uow, index);
-        fixture.RunCmd(fixture.Booter, cmd);
-        fixture.AssertItemCount(fixture.Uow, index + 1);
-        var actual = fixture.GetItem(fixture.Uow, index);
-        fixture.AssertItem(expected, actual);
-    }    
 }
